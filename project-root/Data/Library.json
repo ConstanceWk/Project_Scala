@@ -1,538 +1,649 @@
 {
-  "books": [
+  "books" : [
     {
-      "isbn": "978-00000000001",
-      "title": "Livre Exemple 1",
-      "authors": [
+      "isbn" : "978-00000000001",
+      "title" : "Livre Exemple 1",
+      "authors" : [
         "Auteur 1",
         "Auteur 2"
       ],
-      "publicationYear": 2001,
-      "genre": "Science",
-      "available": true
+      "publicationYear" : 2001,
+      "genre" : "Science",
+      "available" : true
     },
     {
-      "isbn": "978-00000000002",
-      "title": "Livre Exemple 2",
-      "authors": [
+      "isbn" : "978-00000000002",
+      "title" : "Livre Exemple 2",
+      "authors" : [
         "Auteur 2",
         "Auteur 3"
       ],
-      "publicationYear": 2002,
-      "genre": "Roman",
-      "available": true
+      "publicationYear" : 2002,
+      "genre" : "Roman",
+      "available" : false
     },
     {
-      "isbn": "978-00000000003",
-      "title": "Livre Exemple 3",
-      "authors": [
+      "isbn" : "978-00000000003",
+      "title" : "Livre Exemple 3",
+      "authors" : [
         "Auteur 3",
         "Auteur 4"
       ],
-      "publicationYear": 2003,
-      "genre": "Science",
-      "available": true
+      "publicationYear" : 2003,
+      "genre" : "Science",
+      "available" : false
     },
     {
-      "isbn": "978-00000000004",
-      "title": "Livre Exemple 4",
-      "authors": [
+      "isbn" : "978-00000000004",
+      "title" : "Livre Exemple 4",
+      "authors" : [
         "Auteur 4",
         "Auteur 5"
       ],
-      "publicationYear": 2004,
-      "genre": "Roman",
-      "available": false
+      "publicationYear" : 2004,
+      "genre" : "Roman",
+      "available" : false
     },
     {
-      "isbn": "978-00000000005",
-      "title": "Livre Exemple 5",
-      "authors": [
+      "isbn" : "978-00000000005",
+      "title" : "Livre Exemple 5",
+      "authors" : [
         "Auteur 5",
         "Auteur 6"
       ],
-      "publicationYear": 2005,
-      "genre": "Science",
-      "available": true
+      "publicationYear" : 2005,
+      "genre" : "Science",
+      "available" : false
     },
     {
-      "isbn": "978-00000000006",
-      "title": "Livre Exemple 6",
-      "authors": [
+      "isbn" : "978-00000000006",
+      "title" : "Livre Exemple 6",
+      "authors" : [
         "Auteur 6",
         "Auteur 7"
       ],
-      "publicationYear": 2006,
-      "genre": "Roman",
-      "available": true
+      "publicationYear" : 2006,
+      "genre" : "Roman",
+      "available" : false
     },
     {
-      "isbn": "978-00000000007",
-      "title": "Livre Exemple 7",
-      "authors": [
+      "isbn" : "978-00000000007",
+      "title" : "Livre Exemple 7",
+      "authors" : [
         "Auteur 7",
         "Auteur 8"
       ],
-      "publicationYear": 2007,
-      "genre": "Science",
-      "available": true
+      "publicationYear" : 2007,
+      "genre" : "Science",
+      "available" : false
     },
     {
-      "isbn": "978-00000000008",
-      "title": "Livre Exemple 8",
-      "authors": [
+      "isbn" : "978-00000000008",
+      "title" : "Livre Exemple 8",
+      "authors" : [
         "Auteur 8",
         "Auteur 9"
       ],
-      "publicationYear": 2008,
-      "genre": "Roman",
-      "available": false
+      "publicationYear" : 2008,
+      "genre" : "Roman",
+      "available" : false
     },
     {
-      "isbn": "978-00000000009",
-      "title": "Livre Exemple 9",
-      "authors": [
+      "isbn" : "978-00000000009",
+      "title" : "Livre Exemple 9",
+      "authors" : [
         "Auteur 9",
         "Auteur 10"
       ],
-      "publicationYear": 2009,
-      "genre": "Science",
-      "available": true
+      "publicationYear" : 2009,
+      "genre" : "Science",
+      "available" : false
     },
     {
-      "isbn": "978-00000000010",
-      "title": "Livre Exemple 10",
-      "authors": [
+      "isbn" : "978-00000000010",
+      "title" : "Livre Exemple 10",
+      "authors" : [
         "Auteur 10",
         "Auteur 11"
       ],
-      "publicationYear": 2010,
-      "genre": "Roman",
-      "available": true
+      "publicationYear" : 2010,
+      "genre" : "Roman",
+      "available" : false
     },
     {
-      "isbn": "978-00000000011",
-      "title": "Livre Exemple 11",
-      "authors": [
+      "isbn" : "978-00000000011",
+      "title" : "Livre Exemple 11",
+      "authors" : [
         "Auteur 11",
         "Auteur 12"
       ],
-      "publicationYear": 2011,
-      "genre": "Science",
-      "available": true
+      "publicationYear" : 2011,
+      "genre" : "Science",
+      "available" : false
     },
     {
-      "isbn": "978-00000000012",
-      "title": "Livre Exemple 12",
-      "authors": [
+      "isbn" : "978-00000000012",
+      "title" : "Livre Exemple 12",
+      "authors" : [
         "Auteur 12",
         "Auteur 13"
       ],
-      "publicationYear": 2012,
-      "genre": "Roman",
-      "available": false
+      "publicationYear" : 2012,
+      "genre" : "Roman",
+      "available" : true
     },
     {
-      "isbn": "978-00000000013",
-      "title": "Livre Exemple 13",
-      "authors": [
+      "isbn" : "978-00000000013",
+      "title" : "Livre Exemple 13",
+      "authors" : [
         "Auteur 13",
         "Auteur 14"
       ],
-      "publicationYear": 2013,
-      "genre": "Science",
-      "available": true
+      "publicationYear" : 2013,
+      "genre" : "Science",
+      "available" : true
     },
     {
-      "isbn": "978-00000000014",
-      "title": "Livre Exemple 14",
-      "authors": [
+      "isbn" : "978-00000000014",
+      "title" : "Livre Exemple 14",
+      "authors" : [
         "Auteur 14",
         "Auteur 15"
       ],
-      "publicationYear": 2014,
-      "genre": "Roman",
-      "available": true
+      "publicationYear" : 2014,
+      "genre" : "Roman",
+      "available" : true
     },
     {
-      "isbn": "978-00000000015",
-      "title": "Livre Exemple 15",
-      "authors": [
+      "isbn" : "978-00000000015",
+      "title" : "Livre Exemple 15",
+      "authors" : [
         "Auteur 15",
         "Auteur 16"
       ],
-      "publicationYear": 2015,
-      "genre": "Science",
-      "available": true
+      "publicationYear" : 2015,
+      "genre" : "Science",
+      "available" : true
     },
     {
-      "isbn": "978-00000000016",
-      "title": "Livre Exemple 16",
-      "authors": [
+      "isbn" : "978-00000000016",
+      "title" : "Livre Exemple 16",
+      "authors" : [
         "Auteur 16",
         "Auteur 17"
       ],
-      "publicationYear": 2016,
-      "genre": "Roman",
-      "available": false
+      "publicationYear" : 2016,
+      "genre" : "Roman",
+      "available" : true
     },
     {
-      "isbn": "978-00000000017",
-      "title": "Livre Exemple 17",
-      "authors": [
+      "isbn" : "978-00000000017",
+      "title" : "Livre Exemple 17",
+      "authors" : [
         "Auteur 17",
         "Auteur 18"
       ],
-      "publicationYear": 2017,
-      "genre": "Science",
-      "available": true
+      "publicationYear" : 2017,
+      "genre" : "Science",
+      "available" : true
     },
     {
-      "isbn": "978-00000000018",
-      "title": "Livre Exemple 18",
-      "authors": [
+      "isbn" : "978-00000000018",
+      "title" : "Livre Exemple 18",
+      "authors" : [
         "Auteur 18",
         "Auteur 19"
       ],
-      "publicationYear": 2018,
-      "genre": "Roman",
-      "available": true
+      "publicationYear" : 2018,
+      "genre" : "Roman",
+      "available" : true
     },
     {
-      "isbn": "978-00000000019",
-      "title": "Livre Exemple 19",
-      "authors": [
+      "isbn" : "978-00000000019",
+      "title" : "Livre Exemple 19",
+      "authors" : [
         "Auteur 19",
         "Auteur 20"
       ],
-      "publicationYear": 2019,
-      "genre": "Science",
-      "available": true
+      "publicationYear" : 2019,
+      "genre" : "Science",
+      "available" : true
     },
     {
-      "isbn": "978-00000000020",
-      "title": "Livre Exemple 20",
-      "authors": [
+      "isbn" : "978-00000000020",
+      "title" : "Livre Exemple 20",
+      "authors" : [
         "Auteur 20",
         "Auteur 21"
       ],
-      "publicationYear": 2000,
-      "genre": "Roman",
-      "available": false
+      "publicationYear" : 2000,
+      "genre" : "Roman",
+      "available" : true
     },
     {
-      "isbn": "978-00000000021",
-      "title": "Livre Exemple 21",
-      "authors": [
+      "isbn" : "978-00000000021",
+      "title" : "Livre Exemple 21",
+      "authors" : [
         "Auteur 21",
         "Auteur 22"
       ],
-      "publicationYear": 2001,
-      "genre": "Science",
-      "available": true
+      "publicationYear" : 2001,
+      "genre" : "Science",
+      "available" : true
     },
     {
-      "isbn": "978-00000000022",
-      "title": "Livre Exemple 22",
-      "authors": [
+      "isbn" : "978-00000000022",
+      "title" : "Livre Exemple 22",
+      "authors" : [
         "Auteur 22",
         "Auteur 23"
       ],
-      "publicationYear": 2002,
-      "genre": "Roman",
-      "available": true
+      "publicationYear" : 2002,
+      "genre" : "Roman",
+      "available" : true
     },
     {
-      "isbn": "978-00000000023",
-      "title": "Livre Exemple 23",
-      "authors": [
+      "isbn" : "978-00000000023",
+      "title" : "Livre Exemple 23",
+      "authors" : [
         "Auteur 23",
         "Auteur 24"
       ],
-      "publicationYear": 2003,
-      "genre": "Science",
-      "available": true
+      "publicationYear" : 2003,
+      "genre" : "Science",
+      "available" : true
     },
     {
-      "isbn": "978-00000000024",
-      "title": "Livre Exemple 24",
-      "authors": [
+      "isbn" : "978-00000000024",
+      "title" : "Livre Exemple 24",
+      "authors" : [
         "Auteur 24",
         "Auteur 25"
       ],
-      "publicationYear": 2004,
-      "genre": "Roman",
-      "available": false
+      "publicationYear" : 2004,
+      "genre" : "Roman",
+      "available" : true
     },
     {
-      "isbn": "978-00000000025",
-      "title": "Livre Exemple 25",
-      "authors": [
+      "isbn" : "978-00000000025",
+      "title" : "Livre Exemple 25",
+      "authors" : [
         "Auteur 25",
         "Auteur 26"
       ],
-      "publicationYear": 2005,
-      "genre": "Science",
-      "available": true
+      "publicationYear" : 2005,
+      "genre" : "Science",
+      "available" : true
     },
     {
-      "isbn": "978-00000000026",
-      "title": "Livre Exemple 26",
-      "authors": [
+      "isbn" : "978-00000000026",
+      "title" : "Livre Exemple 26",
+      "authors" : [
         "Auteur 26",
         "Auteur 27"
       ],
-      "publicationYear": 2006,
-      "genre": "Roman",
-      "available": true
+      "publicationYear" : 2006,
+      "genre" : "Roman",
+      "available" : true
     },
     {
-      "isbn": "978-00000000027",
-      "title": "Livre Exemple 27",
-      "authors": [
+      "isbn" : "978-00000000027",
+      "title" : "Livre Exemple 27",
+      "authors" : [
         "Auteur 27",
         "Auteur 28"
       ],
-      "publicationYear": 2007,
-      "genre": "Science",
-      "available": true
+      "publicationYear" : 2007,
+      "genre" : "Science",
+      "available" : true
     },
     {
-      "isbn": "978-00000000028",
-      "title": "Livre Exemple 28",
-      "authors": [
+      "isbn" : "978-00000000028",
+      "title" : "Livre Exemple 28",
+      "authors" : [
         "Auteur 28",
         "Auteur 29"
       ],
-      "publicationYear": 2008,
-      "genre": "Roman",
-      "available": false
+      "publicationYear" : 2008,
+      "genre" : "Roman",
+      "available" : true
     },
     {
-      "isbn": "978-00000000029",
-      "title": "Livre Exemple 29",
-      "authors": [
+      "isbn" : "978-00000000029",
+      "title" : "Livre Exemple 29",
+      "authors" : [
         "Auteur 29",
         "Auteur 30"
       ],
-      "publicationYear": 2009,
-      "genre": "Science",
-      "available": true
+      "publicationYear" : 2009,
+      "genre" : "Science",
+      "available" : true
     },
     {
-      "isbn": "978-00000000030",
-      "title": "Livre Exemple 30",
-      "authors": [
+      "isbn" : "978-00000000030",
+      "title" : "Livre Exemple 30",
+      "authors" : [
         "Auteur 30",
         "Auteur 31"
       ],
-      "publicationYear": 2010,
-      "genre": "Roman",
-      "available": true
+      "publicationYear" : 2010,
+      "genre" : "Roman",
+      "available" : true
     }
   ],
-  "users": [
+  "users" : [
     {
-      "id": "1",
-      "name": "Utilisateur 1"
+      "Student" : {
+        "id" : "1",
+        "name" : "Utilisateur 1",
+        "level" : "Undergraduate"
+      }
     },
     {
-      "id": "2",
-      "name": "Utilisateur 2"
+      "Student" : {
+        "id" : "2",
+        "name" : "Utilisateur 2",
+        "level" : "Undergraduate"
+      }
     },
     {
-      "id": "3",
-      "name": "Utilisateur 3"
+      "Student" : {
+        "id" : "3",
+        "name" : "Utilisateur 3",
+        "level" : "Undergraduate"
+      }
     },
     {
-      "id": "4",
-      "name": "Utilisateur 4"
+      "Student" : {
+        "id" : "4",
+        "name" : "Utilisateur 4",
+        "level" : "Undergraduate"
+      }
     },
     {
-      "id": "5",
-      "name": "Utilisateur 5"
+      "Student" : {
+        "id" : "5",
+        "name" : "Utilisateur 5",
+        "level" : "Undergraduate"
+      }
     }
   ],
-  "transactions": [
+  "transactions" : [
     {
-      "book": {
-        "isbn": "978-00000000001",
-        "title": "Livre Exemple 1",
-        "authors": [
-          "Auteur 1",
-          "Auteur 2"
-        ],
-        "publicationYear": 2001,
-        "genre": "Science",
-        "available": false
-      },
-      "user": {
-        "id": "1",
-        "name": "Utilisateur 1"
-      },
-      "timestamp": "2025-06-02T14:00:00"
+      "Return" : {
+        "book" : {
+          "isbn" : "978-00000000001",
+          "title" : "Livre Exemple 1",
+          "authors" : [
+            "Auteur 1",
+            "Auteur 2"
+          ],
+          "publicationYear" : 2001,
+          "genre" : "Science",
+          "available" : true
+        },
+        "user" : {
+          "Student" : {
+            "id" : "1",
+            "name" : "Utilisateur 1",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-02T11:32:44.609244"
+      }
     },
     {
-      "book": {
-        "isbn": "978-00000000002",
-        "title": "Livre Exemple 2",
-        "authors": [
-          "Auteur 2",
-          "Auteur 3"
-        ],
-        "publicationYear": 2002,
-        "genre": "Roman",
-        "available": false
-      },
-      "user": {
-        "id": "2",
-        "name": "Utilisateur 2"
-      },
-      "timestamp": "2025-06-03T14:00:00"
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000011",
+          "title" : "Livre Exemple 11",
+          "authors" : [
+            "Auteur 11",
+            "Auteur 12"
+          ],
+          "publicationYear" : 2011,
+          "genre" : "Science",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "1",
+            "name" : "Utilisateur 1",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-02T11:32:29.420014"
+      }
     },
     {
-      "book": {
-        "isbn": "978-00000000003",
-        "title": "Livre Exemple 3",
-        "authors": [
-          "Auteur 3",
-          "Auteur 4"
-        ],
-        "publicationYear": 2003,
-        "genre": "Science",
-        "available": false
-      },
-      "user": {
-        "id": "3",
-        "name": "Utilisateur 3"
-      },
-      "timestamp": "2025-06-04T14:00:00"
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000001",
+          "title" : "Livre Exemple 1",
+          "authors" : [
+            "Auteur 1",
+            "Auteur 2"
+          ],
+          "publicationYear" : 2001,
+          "genre" : "Science",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "1",
+            "name" : "Utilisateur 1",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-06-02T14:00:00"
+      }
     },
     {
-      "book": {
-        "isbn": "978-00000000004",
-        "title": "Livre Exemple 4",
-        "authors": [
-          "Auteur 4",
-          "Auteur 5"
-        ],
-        "publicationYear": 2004,
-        "genre": "Roman",
-        "available": false
-      },
-      "user": {
-        "id": "4",
-        "name": "Utilisateur 4"
-      },
-      "timestamp": "2025-06-05T14:00:00"
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000002",
+          "title" : "Livre Exemple 2",
+          "authors" : [
+            "Auteur 2",
+            "Auteur 3"
+          ],
+          "publicationYear" : 2002,
+          "genre" : "Roman",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "2",
+            "name" : "Utilisateur 2",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-06-03T14:00:00"
+      }
     },
     {
-      "book": {
-        "isbn": "978-00000000005",
-        "title": "Livre Exemple 5",
-        "authors": [
-          "Auteur 5",
-          "Auteur 6"
-        ],
-        "publicationYear": 2005,
-        "genre": "Science",
-        "available": false
-      },
-      "user": {
-        "id": "5",
-        "name": "Utilisateur 5"
-      },
-      "timestamp": "2025-06-06T14:00:00"
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000003",
+          "title" : "Livre Exemple 3",
+          "authors" : [
+            "Auteur 3",
+            "Auteur 4"
+          ],
+          "publicationYear" : 2003,
+          "genre" : "Science",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "3",
+            "name" : "Utilisateur 3",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-06-04T14:00:00"
+      }
     },
     {
-      "book": {
-        "isbn": "978-00000000006",
-        "title": "Livre Exemple 6",
-        "authors": [
-          "Auteur 6",
-          "Auteur 7"
-        ],
-        "publicationYear": 2006,
-        "genre": "Roman",
-        "available": false
-      },
-      "user": {
-        "id": "1",
-        "name": "Utilisateur 1"
-      },
-      "timestamp": "2025-06-07T14:00:00"
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000004",
+          "title" : "Livre Exemple 4",
+          "authors" : [
+            "Auteur 4",
+            "Auteur 5"
+          ],
+          "publicationYear" : 2004,
+          "genre" : "Roman",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "4",
+            "name" : "Utilisateur 4",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-06-05T14:00:00"
+      }
     },
     {
-      "book": {
-        "isbn": "978-00000000007",
-        "title": "Livre Exemple 7",
-        "authors": [
-          "Auteur 7",
-          "Auteur 8"
-        ],
-        "publicationYear": 2007,
-        "genre": "Science",
-        "available": false
-      },
-      "user": {
-        "id": "2",
-        "name": "Utilisateur 2"
-      },
-      "timestamp": "2025-06-08T14:00:00"
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000005",
+          "title" : "Livre Exemple 5",
+          "authors" : [
+            "Auteur 5",
+            "Auteur 6"
+          ],
+          "publicationYear" : 2005,
+          "genre" : "Science",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "5",
+            "name" : "Utilisateur 5",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-06-06T14:00:00"
+      }
     },
     {
-      "book": {
-        "isbn": "978-00000000008",
-        "title": "Livre Exemple 8",
-        "authors": [
-          "Auteur 8",
-          "Auteur 9"
-        ],
-        "publicationYear": 2008,
-        "genre": "Roman",
-        "available": false
-      },
-      "user": {
-        "id": "3",
-        "name": "Utilisateur 3"
-      },
-      "timestamp": "2025-06-09T14:00:00"
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000006",
+          "title" : "Livre Exemple 6",
+          "authors" : [
+            "Auteur 6",
+            "Auteur 7"
+          ],
+          "publicationYear" : 2006,
+          "genre" : "Roman",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "1",
+            "name" : "Utilisateur 1",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-06-07T14:00:00"
+      }
     },
     {
-      "book": {
-        "isbn": "978-00000000009",
-        "title": "Livre Exemple 9",
-        "authors": [
-          "Auteur 9",
-          "Auteur 10"
-        ],
-        "publicationYear": 2009,
-        "genre": "Science",
-        "available": false
-      },
-      "user": {
-        "id": "4",
-        "name": "Utilisateur 4"
-      },
-      "timestamp": "2025-06-10T14:00:00"
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000007",
+          "title" : "Livre Exemple 7",
+          "authors" : [
+            "Auteur 7",
+            "Auteur 8"
+          ],
+          "publicationYear" : 2007,
+          "genre" : "Science",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "2",
+            "name" : "Utilisateur 2",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-06-08T14:00:00"
+      }
     },
     {
-      "book": {
-        "isbn": "978-00000000010",
-        "title": "Livre Exemple 10",
-        "authors": [
-          "Auteur 10",
-          "Auteur 11"
-        ],
-        "publicationYear": 2010,
-        "genre": "Roman",
-        "available": false
-      },
-      "user": {
-        "id": "5",
-        "name": "Utilisateur 5"
-      },
-      "timestamp": "2025-06-11T14:00:00"
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000008",
+          "title" : "Livre Exemple 8",
+          "authors" : [
+            "Auteur 8",
+            "Auteur 9"
+          ],
+          "publicationYear" : 2008,
+          "genre" : "Roman",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "3",
+            "name" : "Utilisateur 3",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-06-09T14:00:00"
+      }
+    },
+    {
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000009",
+          "title" : "Livre Exemple 9",
+          "authors" : [
+            "Auteur 9",
+            "Auteur 10"
+          ],
+          "publicationYear" : 2009,
+          "genre" : "Science",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "4",
+            "name" : "Utilisateur 4",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-06-10T14:00:00"
+      }
+    },
+    {
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000010",
+          "title" : "Livre Exemple 10",
+          "authors" : [
+            "Auteur 10",
+            "Auteur 11"
+          ],
+          "publicationYear" : 2010,
+          "genre" : "Roman",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "5",
+            "name" : "Utilisateur 5",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-06-11T14:00:00"
+      }
     }
   ]
 }
