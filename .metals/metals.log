@@ -2023,3 +2023,57 @@ INFOS: Unsupported notification method: $/setTrace
 2025.07.02 11:31:09 WARN  no build target for: /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryServer.scala
 2025.07.02 11:31:10 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryServer.scala. Using presentation compiler with project's scala-library version: 3.3.6
 2025.07.02 11:31:10 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryServer.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:37:44 INFO  Started: Metals version 1.6.0 in folders '/Users/constancewalusiak/Documents/GitHub/Project_Scala' for client Visual Studio Code 1.101.2.
+2025.07.21 12:37:45 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:37:46 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+juil. 21, 2025 12:37:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 2
+2025.07.21 12:37:45 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:37:45 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:37:45 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+juil. 21, 2025 12:37:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 8
+juil. 21, 2025 12:37:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 9
+2025.07.21 12:38:20 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:38:20 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:38:20 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:38:20 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:38:20 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:38:20 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:38:20 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:38:20 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:38:20 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:38:20 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:38:20 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:38:20 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:38:20 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+juil. 21, 2025 12:38:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 11
+juil. 21, 2025 12:38:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 12
+juil. 21, 2025 12:38:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 13
+juil. 21, 2025 12:38:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 14
+juil. 21, 2025 12:38:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 15
+juil. 21, 2025 12:38:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 16
+juil. 21, 2025 12:38:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 18
+juil. 21, 2025 12:38:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 19
+juil. 21, 2025 12:38:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 20
+juil. 21, 2025 12:38:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 21
+juil. 21, 2025 12:38:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 22
+juil. 21, 2025 12:38:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 23
+2025.07.21 12:38:20 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.21 12:38:20 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
+juil. 21, 2025 12:38:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+AVERTISSEMENT: Unmatched cancel notification for request id 25
+2025.07.21 12:38:21 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6

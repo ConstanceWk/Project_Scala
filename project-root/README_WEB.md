@@ -1,104 +1,143 @@
-# 📚 Système de Gestion de Bibliothèque - Interface Web
+# 📚 Library Management System - Web Interface
 
-Ce projet est une transformation de l'application console LibraryApp en une interface web moderne avec API REST.
+This project transforms the console application LibraryApp into a modern web interface with a REST API.
 
-## 🚀 Fonctionnalités
+## 🚀 Features
 
-L'interface web offre les mêmes fonctionnalités que l'application console originale :
+The web interface offers the same features as the original console application:
 
-- **Recherche de livres** par titre
-- **Emprunt de livres** avec validation de disponibilité
-- **Retour de livres** avec mise à jour de l'état
-- **Recommandations personnalisées** basées sur l'historique d'emprunt
-- **Consultation des livres disponibles**
-- **Statistiques en temps réel** (nombre de livres, utilisateurs, transactions)
+- **Book search** by title
+- **Book loan** with availability validation
+- **Book return** with status update
+- **Personalized recommendations** based on loan history
+- **View available books**
+- **Real-time statistics** (number of books, users, transactions)
 
 ## 🏗️ Architecture
 
 ### Backend (Scala)
-- **LibraryServer.scala** : Serveur HTTP avec API REST (Akka HTTP)
-- **LibraryCatalog.scala** : Logique métier (identique à l'original)
-- **Models** : Book, User, Transaction (identiques à l'original)
-- **JsonIO** : Persistance des données (identique à l'original)
+- **LibraryServer.scala**: HTTP server with REST API (Akka HTTP)
+- **LibraryCatalog.scala**: Business logic (same as original)
+- **Models**: Book, User, Transaction (same as original)
+- **JsonIO**: Data persistence (same as original)
 
 ### Frontend (HTML/CSS/JavaScript)
-- **index.html** : Interface utilisateur moderne et responsive
-- **app.js** : Logique client et communication avec l'API
-- **Design moderne** : CSS3 avec gradients, animations et interface responsive
+- **index.html**: Modern, responsive user interface
+- **app.js**: Client logic and API communication
+- **Modern design**: CSS3 with gradients, animations, and responsive interface
 
-## 🔧 Utilisation
+## 🔧 Usage
 
-### Démarrage du serveur
+### Starting the Server
 
 ```bash
 cd project-root
 sbt run
 ```
 
-Le serveur se lance sur http://localhost:8080
+The server starts at http://localhost:8080
 
-### Interface utilisateur
+### Stopping the Server (Killing the Process)
 
-1. **Identification** : Entrez votre ID utilisateur
-2. **Recherche** : Tapez un titre de livre dans la barre de recherche
-3. **Actions disponibles** :
-   - Cliquer sur "Livres Disponibles"
-   - Cliquer sur "Mes Recommandations" (nécessite un ID utilisateur)
-   - Cliquer sur "Tous les Livres"
-4. **Emprunts/Retours** : Utilisez les boutons sur chaque livre
+To stop the server, you need to kill the process running on the port (usually 8080). Here is how to do it on macOS/Linux:
 
-### API REST
+1. Find the process ID (PID) using the following command:
+   ```bash
+   lsof -i :8080
+   ```
+   This will show the PID of the process using port 8080.
+2. Kill the process by running:
+   ```bash
+   kill -9 <PID>
+   ```
+   Replace `<PID>` with the actual number from the previous command.
 
-L'API REST est disponible sur `/api` avec les endpoints suivants :
+This will stop the server and free up the port for future use.
 
-- `GET /api/books` - Liste tous les livres
-- `GET /api/books/available` - Liste les livres disponibles
-- `POST /api/books/search` - Recherche de livres
-- `POST /api/books/loan` - Emprunter un livre
-- `POST /api/books/return` - Retourner un livre
-- `GET /api/users/{userId}/recommendations` - Recommandations
-- `GET /api/users` - Liste des utilisateurs
-- `GET /api/transactions` - Liste des transactions
+### User Interface
 
-## 📊 Avantages de l'interface web
+1. **Login**: Enter your user ID
+2. **Search**: Type a book title in the search bar
+3. **Available actions**:
+   - Click "Available Books"
+   - Click "My Recommendations" (requires user ID)
+   - Click "All Books"
+4. **Loans/Returns**: Use the buttons on each book
 
-### Par rapport à l'application console :
+### REST API
 
-1. **Interface moderne** : Design attrayant et professionnel
-2. **Facilité d'utilisation** : Navigation intuitive avec boutons et formulaires
-3. **Temps réel** : Mise à jour automatique des statistiques
-4. **Accessibilité** : Utilisable depuis n'importe quel navigateur
-5. **Responsive** : S'adapte aux mobiles et tablettes
-6. **Recherche en temps réel** : Recherche au fur et à mesure de la saisie
-7. **Feedback visuel** : Alertes de succès/erreur, animations
-8. **Multi-utilisateur** : Plusieurs utilisateurs peuvent accéder simultanément
+The REST API is available at `/api` with the following endpoints:
 
-### Fonctionnalités améliorées :
+- `GET /api/books` - List all books
+- `GET /api/books/available` - List available books
+- `POST /api/books/search` - Search for books
+- `POST /api/books/loan` - Loan a book
+- `POST /api/books/return` - Return a book
+- `GET /api/users/{userId}/recommendations` - Recommendations
+- `GET /api/users` - List users
+- `GET /api/transactions` - List transactions
 
-- **Statistiques en temps réel** : Compteurs visuels en haut de page
-- **Recherche intelligente** : Recherche automatique après 3 caractères
-- **Interface graphique** : Cartes de livres avec informations détaillées
-- **Gestion des erreurs** : Messages d'erreur clairs et informatifs
-- **Performance** : Chargement asynchrone des données
+## 🖥️ Console Application Option
 
-## 🔄 Comparaison Console vs Web
+You can also use the original console version of the Library Management System if you prefer working in the terminal.
 
-| Fonctionnalité | Console | Web |
-|----------------|---------|-----|
-| Recherche | Saisie manuelle | Temps réel + suggestions |
-| Navigation | Menu textuel | Interface graphique |
-| Affichage | Texte simple | Cartes visuelles avec statut |
-| Statistiques | Aucune | Dashboard en temps réel |
-| Multi-utilisateur | Non | Oui (concurrent) |
-| Accessibilité | Terminal uniquement | Navigateur web |
-| Responsive | Non | Oui (mobile/desktop) |
+### Running the Console Application
 
-## 🎯 Points clés de l'implémentation
+1. Open a terminal and navigate to the project directory:
+   ```bash
+   cd project-root
+   ```
+2. Run the console application:
+   ```bash
+   sbt "runMain LibraryApp"
+   ```
+   This will launch the interactive console interface.
 
-1. **Conservation de la logique métier** : LibraryCatalog reste identique
-2. **API REST complète** : Tous les endpoints nécessaires
-3. **Gestion d'état** : Rechargement automatique après modifications
-4. **Validation côté client** : Vérifications avant envoi des requêtes
-5. **Design moderne** : Interface professionnelle avec animations
+### Choosing Your Mode
+- **Web Interface**: Modern, graphical, accessible from any browser.
+- **Console Application**: Text-based, interactive in the terminal.
 
-L'interface web transforme l'expérience utilisateur tout en conservant la robustesse et la fiabilité de la logique métier originale.
+Both modes use the same business logic and data, so you can choose the experience that suits you best.
+
+## 📊 Advantages of the Web Interface
+
+### Compared to the console application:
+
+1. **Modern interface**: Attractive and professional design
+2. **Ease of use**: Intuitive navigation with buttons and forms
+3. **Real-time**: Automatic statistics updates
+4. **Accessibility**: Usable from any browser
+5. **Responsive**: Adapts to mobile and tablets
+6. **Real-time search**: Search as you type
+7. **Visual feedback**: Success/error alerts, animations
+8. **Multi-user**: Multiple users can access simultaneously
+
+### Enhanced features:
+
+- **Real-time statistics**: Visual counters at the top of the page
+- **Smart search**: Automatic search after 3 characters
+- **Graphical interface**: Book cards with detailed information
+- **Error handling**: Clear and informative error messages
+- **Performance**: Asynchronous data loading
+
+## 🔄 Console vs Web Comparison
+
+| Feature         | Console         | Web                        |
+|----------------|----------------|----------------------------|
+| Search         | Manual input    | Real-time + suggestions    |
+| Navigation     | Text menu       | Graphical interface        |
+| Display        | Simple text     | Visual cards with status   |
+| Statistics     | None            | Real-time dashboard        |
+| Multi-user     | No              | Yes (concurrent)           |
+| Accessibility  | Terminal only   | Web browser                |
+| Responsive     | No              | Yes (mobile/desktop)       |
+
+## 🎯 Key Implementation Points
+
+1. **Preservation of business logic**: LibraryCatalog remains unchanged
+2. **Complete REST API**: All necessary endpoints
+3. **State management**: Automatic reload after changes
+4. **Client-side validation**: Checks before sending requests
+5. **Modern design**: Professional interface with animations
+
+The web interface transforms the user experience while maintaining the robustness and reliability of the original business logic.

@@ -8,7 +8,7 @@ let users = [];
 
 // Initialisation de l'application
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('📚 Application de bibliothèque initialisée');
+    console.log('📚 Library application initialized');
     loadInitialData();
     setupEventListeners();
 });
@@ -59,8 +59,8 @@ async function loadInitialData() {
             loadStats()
         ]);
     } catch (error) {
-        console.error('Erreur lors du chargement initial:', error);
-        showAlert('Erreur lors du chargement des données', 'error');
+        console.error('Error during initial load:', error);
+        showAlert('Error loading data', 'error');
     }
 }
 
@@ -91,7 +91,7 @@ async function loadStats() {
             });
         }
     } catch (error) {
-        console.error('Erreur lors du chargement des statistiques:', error);
+        console.error('Error loading statistics:', error);
     }
 }
 
@@ -101,15 +101,15 @@ function displayStats(stats) {
     statsContainer.innerHTML = `
         <div class="stat-card">
             <h3>${stats.totalBooks}</h3>
-            <p>Total Livres</p>
+            <p>Total Books</p>
         </div>
         <div class="stat-card">
             <h3>${stats.availableBooks}</h3>
-            <p>Disponibles</p>
+            <p>Available</p>
         </div>
         <div class="stat-card">
             <h3>${stats.totalUsers}</h3>
-            <p>Utilisateurs</p>
+            <p>Users</p>
         </div>
         <div class="stat-card">
             <h3>${stats.totalTransactions}</h3>
@@ -126,10 +126,10 @@ async function loadUsers() {
         
         if (data.success) {
             users = data.data;
-            console.log(`Chargé ${users.length} utilisateurs`);
+            console.log(`Loaded ${users.length} users`);
         }
     } catch (error) {
-        console.error('Erreur lors du chargement des utilisateurs:', error);
+        console.error('Error loading users:', error);
     }
 }
 
@@ -143,13 +143,13 @@ async function loadAllBooks() {
         if (data.success) {
             currentBooks = data.data;
             allBooks = data.data;
-            displayBooks(currentBooks, 'Tous les Livres');
+            displayBooks(currentBooks, 'All Books');
         } else {
-            showAlert('Erreur lors du chargement des livres', 'error');
+            showAlert('Error loading books', 'error');
         }
     } catch (error) {
-        console.error('Erreur:', error);
-        showAlert('Erreur de connexion au serveur', 'error');
+        console.error('Error:', error);
+        showAlert('Error connecting to server', 'error');
     }
 }
 
@@ -162,13 +162,13 @@ async function loadAvailableBooks() {
         
         if (data.success) {
             currentBooks = data.data;
-            displayBooks(currentBooks, 'Livres Disponibles');
+            displayBooks(currentBooks, 'Available Books');
         } else {
-            showAlert('Erreur lors du chargement des livres disponibles', 'error');
+            showAlert('Error loading available books', 'error');
         }
     } catch (error) {
-        console.error('Erreur:', error);
-        showAlert('Erreur de connexion au serveur', 'error');
+        console.error('Error:', error);
+        showAlert('Error connecting to server', 'error');
     }
 }
 
@@ -177,7 +177,7 @@ async function searchBooks() {
     const searchTerm = document.getElementById('searchTitle').value.trim();
     
     if (!searchTerm) {
-        showAlert('Veuillez entrer un terme de recherche', 'error');
+        showAlert('Please enter a search term', 'error');
         return;
     }
 
@@ -195,16 +195,16 @@ async function searchBooks() {
         
         if (data.success) {
             currentBooks = data.data;
-            displayBooks(currentBooks, `Résultats pour "${searchTerm}"`);
+            displayBooks(currentBooks, `Results for "${searchTerm}"`);
             if (currentBooks.length === 0) {
-                showAlert('Aucun livre trouvé pour cette recherche', 'error');
+                showAlert('No books found for this search', 'error');
             }
         } else {
-            showAlert('Erreur lors de la recherche', 'error');
+            showAlert('Error during search', 'error');
         }
     } catch (error) {
-        console.error('Erreur:', error);
-        showAlert('Erreur de connexion au serveur', 'error');
+        console.error('Error:', error);
+        showAlert('Error connecting to server', 'error');
     }
 }
 
@@ -213,7 +213,7 @@ async function loadRecommendations() {
     const userId = document.getElementById('userId').value.trim();
     
     if (!userId) {
-        showAlert('Veuillez entrer votre ID utilisateur', 'error');
+        showAlert('Please enter your user ID', 'error');
         return;
     }
 
@@ -224,16 +224,16 @@ async function loadRecommendations() {
         
         if (data.success) {
             currentBooks = data.data;
-            displayBooks(currentBooks, `Recommandations pour ${userId}`);
+            displayBooks(currentBooks, `Recommendations for ${userId}`);
             if (currentBooks.length === 0) {
-                showAlert('Aucune recommandation disponible', 'error');
+                showAlert('No recommendations available', 'error');
             }
         } else {
-            showAlert('Erreur lors du chargement des recommandations', 'error');
+            showAlert('Error loading recommendations', 'error');
         }
     } catch (error) {
-        console.error('Erreur:', error);
-        showAlert('Erreur de connexion au serveur', 'error');
+        console.error('Error:', error);
+        showAlert('Error connecting to server', 'error');
     }
 }
 
@@ -242,7 +242,7 @@ async function loanBook(bookId) {
     const userId = document.getElementById('userId').value.trim();
     
     if (!userId) {
-        showAlert('Veuillez entrer votre ID utilisateur', 'error');
+        showAlert('Please enter your user ID', 'error');
         return;
     }
 
@@ -266,11 +266,11 @@ async function loanBook(bookId) {
             loadAvailableBooks();
             loadStats(); // Mettre à jour les statistiques
         } else {
-            showAlert(data.message || 'Erreur lors de l\'emprunt', 'error');
+            showAlert(data.message || 'Error during loan', 'error');
         }
     } catch (error) {
-        console.error('Erreur:', error);
-        showAlert('Erreur de connexion au serveur', 'error');
+        console.error('Error:', error);
+        showAlert('Error connecting to server', 'error');
     }
 }
 
@@ -279,7 +279,7 @@ async function returnBook(bookId) {
     const userId = document.getElementById('userId').value.trim();
     
     if (!userId) {
-        showAlert('Veuillez entrer votre ID utilisateur', 'error');
+        showAlert('Please enter your user ID', 'error');
         return;
     }
 
@@ -303,11 +303,11 @@ async function returnBook(bookId) {
             loadAllBooks();
             loadStats(); // Mettre à jour les statistiques
         } else {
-            showAlert(data.message || 'Erreur lors du retour', 'error');
+            showAlert(data.message || 'Error during return', 'error');
         }
     } catch (error) {
-        console.error('Erreur:', error);
-        showAlert('Erreur de connexion au serveur', 'error');
+        console.error('Error:', error);
+        showAlert('Error connecting to server', 'error');
     }
 }
 
@@ -317,12 +317,11 @@ function displayBooks(books, title) {
     const sectionTitle = document.getElementById('sectionTitle');
     
     sectionTitle.innerHTML = `<i class="fas fa-book-open"></i> ${title} (${books.length})`;
-    
     if (books.length === 0) {
         container.innerHTML = `
             <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
                 <i class="fas fa-book" style="font-size: 3rem; color: #ccc; margin-bottom: 20px;"></i>
-                <p style="color: #666; font-size: 1.2rem;">Aucun livre trouvé</p>
+                <p style="color: #666; font-size: 1.2rem;">No books found</p>
             </div>
         `;
         return;
@@ -334,14 +333,14 @@ function displayBooks(books, title) {
 // Création d'une carte de livre
 function createBookCard(book) {
     const availabilityClass = book.available ? 'available' : 'unavailable';
-    const availabilityText = book.available ? '✅ Disponible' : '❌ Emprunté';
+    const availabilityText = book.available ? '✅ Available' : '❌ Loaned';
     
     const actions = book.available 
         ? `<button class="btn" onclick="loanBook('${book.isbn}')">
-               <i class="fas fa-hand-holding"></i> Emprunter
+               <i class="fas fa-hand-holding"></i> Borrow
            </button>`
         : `<button class="btn btn-warning" onclick="returnBook('${book.isbn}')">
-               <i class="fas fa-undo"></i> Retourner
+               <i class="fas fa-undo"></i> Return
            </button>`;
     
     return `
@@ -390,7 +389,7 @@ function showLoading() {
     container.innerHTML = `
         <div class="loading" style="grid-column: 1 / -1;">
             <i class="fas fa-spinner"></i>
-            <p>Chargement en cours...</p>
+            <p>Loading...</p>
         </div>
     `;
 }
@@ -407,10 +406,10 @@ function capitalizeFirst(str) {
 
 // Gestion des erreurs globales
 window.addEventListener('error', function(e) {
-    console.error('Erreur JavaScript:', e.error);
-    showAlert('Une erreur inattendue s\'est produite', 'error');
+    console.error('JavaScript Error:', e.error);
+    showAlert('An unexpected error occurred', 'error');
 });
 
 // Console log pour le debugging
-console.log('📚 Module JavaScript de gestion de bibliothèque chargé');
-console.log('🔧 API disponible sur:', API_BASE);
+console.log('📚 Library management JavaScript module loaded');
+console.log('🔧 API available at:', API_BASE);

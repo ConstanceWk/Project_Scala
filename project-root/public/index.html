@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📚 Système de Gestion de Bibliothèque</title>
+    <title>📚 Library Management System</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -301,8 +301,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1><i class="fas fa-book"></i> Système de Gestion de Bibliothèque</h1>
-            <p>Gérez vos livres et emprunts facilement</p>
+            <h1><i class="fas fa-book"></i> Library Management System</h1>
+            <p>Manage your books and loans easily</p>
         </div>
 
         <div class="stats" id="stats">
@@ -314,32 +314,32 @@
                 <div class="user-section">
                     <h3><i class="fas fa-user"></i> Identification</h3>
                     <div class="form-group">
-                        <label for="userId">ID Utilisateur :</label>
-                        <input type="text" id="userId" placeholder="Votre ID utilisateur">
+                        <label for="userId">User ID:</label>
+                        <input type="text" id="userId" placeholder="Your user ID">
                     </div>
                 </div>
 
                 <div class="user-section">
-                    <h3><i class="fas fa-search"></i> Recherche</h3>
+                    <h3><i class="fas fa-search"></i> Search</h3>
                     <div class="form-group">
-                        <label for="searchTitle">Rechercher un livre :</label>
-                        <input type="text" id="searchTitle" placeholder="Titre du livre">
+                        <label for="searchTitle">Search for a book:</label>
+                        <input type="text" id="searchTitle" placeholder="Book title">
                     </div>
                     <button class="btn" onclick="searchBooks()">
-                        <i class="fas fa-search"></i> Rechercher
+                        <i class="fas fa-search"></i> Search
                     </button>
                 </div>
 
                 <div class="user-section">
                     <h3><i class="fas fa-cogs"></i> Actions</h3>
                     <button class="btn" onclick="loadAvailableBooks()">
-                        <i class="fas fa-list"></i> Livres Disponibles
+                        <i class="fas fa-list"></i> Available Books
                     </button>
                     <button class="btn btn-secondary" onclick="loadRecommendations()">
-                        <i class="fas fa-star"></i> Mes Recommandations
+                        <i class="fas fa-star"></i> My Recommendations
                     </button>
                     <button class="btn btn-warning" onclick="loadAllBooks()">
-                        <i class="fas fa-book-open"></i> Tous les Livres
+                        <i class="fas fa-book-open"></i> All Books
                     </button>
                 </div>
             </div>
@@ -348,11 +348,11 @@
                 <div id="alerts"></div>
                 
                 <div class="section">
-                    <h2 id="sectionTitle"><i class="fas fa-book-open"></i> Livres Disponibles</h2>
+                    <h2 id="sectionTitle"><i class="fas fa-book-open"></i> Available Books</h2>
                     <div id="booksContainer" class="books-grid">
                         <div class="loading">
                             <i class="fas fa-spinner"></i>
-                            <p>Chargement des livres...</p>
+                            <p>Loading books...</p>
                         </div>
                     </div>
                 </div>

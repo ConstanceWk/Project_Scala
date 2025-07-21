@@ -13,73 +13,78 @@ object LibraryApp {
     val loadedCatalog = JsonIO.loadFromFile[LibraryCatalog](jsonPath).getOrElse(LibraryCatalog(Nil, Nil, Nil))
     val initialCatalog = loadedCatalog.synchronizeBookAvailability
 
-    println("\n📚 Bienvenue dans le système de gestion de bibliothèque 📚")
-    println(s"📁 Chargement de ${initialCatalog.books.length} livres.")
+    println("\n📚 Welcome to the Library Management System 📚")
+    println(s"📁 Loaded ${initialCatalog.books.length} books.")
 
     def loop(catalog: LibraryCatalog): Unit = {
       println("""
         |------------------------------
-        |1. Rechercher un livre
-        |2. Emprunter un livre
-        |3. Retourner un livre
-        |4. Afficher mes recommandations
-        |5. Lister les livres disponibles
-        |6. Quitter
+        |1. Search for a book
+        |2. Borrow a book
+        |3. Return a book
+        |4. Show my recommendations
+        |5. List available books
+        |6. Exit
         |------------------------------
         |""".stripMargin)
       
-      readLine("Votre choix : ").trim.toIntOption match {
+      readLine("Your choice: ").trim.toIntOption match {
         case Some(1) =>
-          val title = readLine("Titre à rechercher : ")
+          val title = readLine("Title to search: ")
           val results = catalog.findByTitle(title)
           if results.nonEmpty then 
             results.foreach(b => println(s"📖 ${b.title} - ${b.authors.mkString(", ")} (${b.publicationYear})"))
           else 
-            println("Aucun livre trouvé.")
+            println("No book found.")
           loop(catalog)
 
         case Some(2) =>
-          val userId = readLine("Votre ID utilisateur : ")
-          val bookId = readLine("ID du livre à emprunter : ")
+          val userId = readLine("Your user ID: ")
+          val bookId = readLine("ID of the book to borrow: ")
           catalog.loanBook(bookId, userId) match {
             case Right(updated) =>
-              println("✅ Livre emprunté avec succès.")
+              println("✅ Book borrowed successfully.")
               JsonIO.saveToFile(updated, jsonPath)
               loop(updated)
             case Left(error) =>
-              println(s"❌ Erreur : $error")
+              println(s"❌ Error: $error")
               loop(catalog)
           }
 
         case Some(3) =>
-          val userId = readLine("Votre ID utilisateur : ")
-          val bookId = readLine("ID du livre à retourner : ")
+          val userId = readLine("Your user ID: ")
+          val bookId = readLine("ID of the book to return: ")
           catalog.returnBook(bookId, userId) match {
             case Right(updated) =>
-              println("✅ Livre retourné avec succès.")
+              println("✅ Book returned successfully.")
               JsonIO.saveToFile(updated, jsonPath)
               loop(updated)
             case Left(error) =>
-              println(s"❌ Erreur : $error")
+              println(s"❌ Error: $error")
               loop(catalog)
           }
 
         case Some(4) =>
-          val userId = readLine("Votre ID utilisateur : ")
-          val recs = catalog.recommendBooks(userId)
-          println("🎯 Recommandations :")
-          recs.foreach(b => println(s"- ${b.title} (${b.genre})"))
-          loop(catalog)
+          val userId = readLine("Your user ID: ")
+          if !catalog.users.exists(_.id == userId) then
+            println("❌ Error: User not found.")
+            loop(catalog)
+          else
+            val recs = catalog.recommendBooks(userId)
+            println("🎯 Recommendations:")
+            if recs.isEmpty then println("No recommendations available.")
+            else recs.foreach(b => println(s"- ${b.title} (${b.genre})"))
+            loop(catalog)
 
         case Some(5) =>
           catalog.availableBooks.foreach(b => println(s"📗 ${b.title} - ${b.isbn}"))
           loop(catalog)
 
         case Some(6) =>
-          println("👋 Merci d'avoir utilisé notre système. À bientôt !")
+          println("👋 Thank you for using our system. See you soon!")
 
         case _ =>
-          println("❌ Option invalide.")
+          println("❌ Invalid option.")
           loop(catalog)
       }
     }

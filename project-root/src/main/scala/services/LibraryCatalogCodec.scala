@@ -18,23 +18,67 @@ given Decoder[Book] = deriveDecoder
 
 // Decoder personnalisé pour User qui traite les objets simples comme des Students
 given Decoder[User] = (c: HCursor) => {
-  for {
-    id <- c.downField("id").as[String]
-    name <- c.downField("name").as[String]
-    // Essayer de lire les champs spécifiques, sinon créer un Student par défaut
-    level = c.downField("level").as[String].getOrElse("Undergraduate")
-  } yield Student(id, name, level)
+  // Format imbriqué : { "Student": {...} } ou { "Faculty": {...} } ou { "Librarian": {...} }
+  c.keys.flatMap(_.headOption) match {
+    case Some("Student") =>
+      val studentCursor = c.downField("Student")
+      for {
+        id <- studentCursor.downField("id").as[String]
+        name <- studentCursor.downField("name").as[String]
+        level <- studentCursor.downField("level").as[String]
+      } yield Student(id, name, level)
+    case Some("Faculty") =>
+      val facultyCursor = c.downField("Faculty")
+      for {
+        id <- facultyCursor.downField("id").as[String]
+        name <- facultyCursor.downField("name").as[String]
+        department <- facultyCursor.downField("department").as[String]
+      } yield Faculty(id, name, department)
+    case Some("Librarian") =>
+      val librarianCursor = c.downField("Librarian")
+      for {
+        id <- librarianCursor.downField("id").as[String]
+        name <- librarianCursor.downField("name").as[String]
+        position <- librarianCursor.downField("position").as[String]
+      } yield Librarian(id, name, position)
+    case _ =>
+      // Fallback : format plat (jamais utilisé ici)
+      for {
+        id <- c.downField("id").as[String]
+        name <- c.downField("name").as[String]
+        level = c.downField("level").as[String].getOrElse("Undergraduate")
+      } yield Student(id, name, level)
+  }
 }
 
 given Encoder[User] = deriveEncoder
 
 // Decoder personnalisé pour Transaction qui traite les objets simples comme des Loans
 given Decoder[Transaction] = (c: HCursor) => {
-  for {
-    book <- c.downField("book").as[Book]
-    user <- c.downField("user").as[User]
-    timestamp <- c.downField("timestamp").as[LocalDateTime]
-  } yield Loan(book, user, timestamp)
+  // Format imbriqué : { "Loan": {...} } ou { "Return": {...} }
+  c.keys.flatMap(_.headOption) match {
+    case Some("Loan") =>
+      val loanCursor = c.downField("Loan")
+      for {
+        book <- loanCursor.downField("book").as[Book]
+        user <- loanCursor.downField("user").as[User]
+        timestamp <- loanCursor.downField("timestamp").as[LocalDateTime]
+      } yield Loan(book, user, timestamp)
+    case Some("Return") =>
+      val returnCursor = c.downField("Return")
+      for {
+        book <- returnCursor.downField("book").as[Book]
+        user <- returnCursor.downField("user").as[User]
+        timestamp <- returnCursor.downField("timestamp").as[LocalDateTime]
+      } yield Return(book, user, timestamp)
+    case _ =>
+      // Fallback : format plat (jamais utilisé ici)
+      for {
+        book <- c.downField("book").as[Book]
+        user <- c.downField("user").as[User]
+        timestamp <- c.downField("timestamp").as[LocalDateTime]
+      } yield Loan(book, user, timestamp)
+  }
 }
 
 given Encoder[Transaction] = deriveEncoder

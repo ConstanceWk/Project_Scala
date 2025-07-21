@@ -1,3 +1,21 @@
+error id: file://<WORKSPACE>/project-root/src/main/scala/LibraryServer.scala:`<none>`.
+file://<WORKSPACE>/project-root/src/main/scala/LibraryServer.scala
+empty definition using pc, found symbol in pc: `<none>`.
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+	 -akka/http/scaladsl/model/Book#
+	 -akka/http/scaladsl/server/Directives.Book#
+	 -io/circe/syntax/Book#
+	 -io/circe/parser/Book#
+	 -io/circe/generic/auto/Book#
+	 -models/Book#
+	 -Book#
+	 -scala/Predef.Book#
+offset: 3052
+uri: file://<WORKSPACE>/project-root/src/main/scala/LibraryServer.scala
+text:
+```scala
 import akka.actor.typed.ActorSystem
 import akka.actor.typed.scaladsl.Behaviors
 import akka.http.scaladsl.Http
@@ -82,7 +100,7 @@ object LibraryServer {
                   complete(jsonResponse(ApiResponse[List[Book]](success = true, data = Some(results))))
                 case Left(_) =>
                   complete(jsonResponse(
-                    ApiResponse[List[Book]](success = false, message = Some("Requête JSON invalide")),
+                    ApiResponse[List[Book@@]](success = false, message = Some("Requête JSON invalide")),
                     StatusCodes.BadRequest
                   ))
               }
@@ -169,12 +187,12 @@ object LibraryServer {
 
     bindingFuture.onComplete {
       case Success(binding) =>
-        println(s"🚀 Server started at http://$host:$port")
-        println("📚 Web interface available at the above address")
-        println("🔧 REST API available at /api")
-        println("Press ENTER to stop the server...")
+        println(s"🚀 Serveur démarré sur http://$host:$port")
+        println("📚 Interface web disponible à l'adresse ci-dessus")
+        println("🔧 API REST disponible sur /api")
+        println("Appuyez sur ENTRÉE pour arrêter le serveur...")
       case Failure(exception) =>
-        println(s"❌ Error starting server: ${exception.getMessage}")
+        println(s"❌ Erreur lors du démarrage du serveur: ${exception.getMessage}")
         system.terminate()
     }
 
@@ -187,3 +205,10 @@ object LibraryServer {
       .onComplete(_ => system.terminate())
   }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: `<none>`.
