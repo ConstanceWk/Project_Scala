@@ -2023,6 +2023,7 @@ INFOS: Unsupported notification method: $/setTrace
 2025.07.02 11:31:09 WARN  no build target for: /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryServer.scala
 2025.07.02 11:31:10 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryServer.scala. Using presentation compiler with project's scala-library version: 3.3.6
 2025.07.02 11:31:10 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryServer.scala. Using presentation compiler with project's scala-library version: 3.3.6
+<<<<<<< Updated upstream
 2025.07.21 12:37:44 INFO  Started: Metals version 1.6.0 in folders '/Users/constancewalusiak/Documents/GitHub/Project_Scala' for client Visual Studio Code 1.101.2.
 2025.07.21 12:37:45 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
 2025.07.21 12:37:46 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/main/scala/LibraryApp.scala. Using presentation compiler with project's scala-library version: 3.3.6
@@ -2952,3 +2953,35 @@ AVERTISSEMENT: Unmatched cancel notification for request id 426
 2025.07.24 14:13:48 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/test/scala/services/LibraryAppFullCoverageTest.scala. Using presentation compiler with project's scala-library version: 3.3.6
 2025.07.24 14:13:48 WARN  no build target for: /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/test/scala/services/LibraryServerCoverageTest.scala
 2025.07.24 14:13:48 INFO  no build target found for /Users/constancewalusiak/Documents/GitHub/Project_Scala/project-root/src/test/scala/services/LibraryAppFullCoverageTest.scala. Using presentation compiler with project's scala-library version: 3.3.6
+=======
+2025.07.03 23:46:57 INFO  Shutting down server
+2025.07.03 23:46:57 INFO  shutting down Metals
+2025.07.03 23:46:57 INFO  Exiting server
+2025.07.04 10:13:09 INFO  Started: Metals version 1.6.0 in folders '/Users/constancewalusiak/Documents/GitHub/Project_Scala' for client Visual Studio Code 1.101.2.
+juil. 04, 2025 10:32:34 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFOS: Unsupported notification method: $/setTrace
+juil. 05, 2025 5:27:02 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFOS: Unsupported notification method: $/setTrace
+juil. 05, 2025 5:45:16 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFOS: Unsupported notification method: $/setTrace
+2025.07.05 18:00:21 INFO  Shutting down server
+2025.07.05 18:00:21 INFO  shutting down Metals
+2025.07.05 18:00:21 INFO  Exiting server
+2025.07.05 18:00:21 ERROR Unexpected error initializing server: 
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Request window/showMessageRequest failed with message: Canceled
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:220)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:204)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:185)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:114)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:840)
+2025.07.17 17:45:06 INFO  Started: Metals version 1.6.0 in folders '/Users/constancewalusiak/Documents/GitHub/Project_Scala' for client Visual Studio Code 1.101.2.
+juil. 17, 2025 8:21:20 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFOS: Unsupported notification method: $/setTrace
+juil. 21, 2025 10:49:32 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFOS: Unsupported notification method: $/setTrace
+>>>>>>> Stashed changes

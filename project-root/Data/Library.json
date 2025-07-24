@@ -295,7 +295,7 @@
       ],
       "publicationYear" : 2007,
       "genre" : "Science",
-      "available" : true
+      "available" : false
     },
     {
       "isbn" : "978-00000000028",
@@ -896,6 +896,282 @@
           }
         },
         "timestamp" : "2025-07-21T11:35:34.612797"
+      }
+    },
+    {
+      "Return" : {
+        "book" : {
+          "isbn" : "978-00000000002",
+          "title" : "Livre Exemple 2",
+          "authors" : [
+            "Auteur 2",
+            "Auteur 3"
+          ],
+          "publicationYear" : 2002,
+          "genre" : "Roman",
+          "available" : true
+        },
+        "user" : {
+          "Student" : {
+            "id" : "1",
+            "name" : "Utilisateur 1",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-02T17:24:46.118709"
+      }
+    },
+    {
+      "Return" : {
+        "book" : {
+          "isbn" : "978-00000000001",
+          "title" : "Livre Exemple 1",
+          "authors" : [
+            "Auteur 1",
+            "Auteur 2"
+          ],
+          "publicationYear" : 2001,
+          "genre" : "Science",
+          "available" : true
+        },
+        "user" : {
+          "Student" : {
+            "id" : "1",
+            "name" : "Utilisateur 1",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-02T17:24:43.960267"
+      }
+    },
+    {
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000001",
+          "title" : "Livre Exemple 1",
+          "authors" : [
+            "Auteur 1",
+            "Auteur 2"
+          ],
+          "publicationYear" : 2001,
+          "genre" : "Science",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "1",
+            "name" : "Utilisateur 1",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-02T17:24:37.071479"
+      }
+    },
+    {
+      "Return" : {
+        "book" : {
+          "isbn" : "978-00000000001",
+          "title" : "Livre Exemple 1",
+          "authors" : [
+            "Auteur 1",
+            "Auteur 2"
+          ],
+          "publicationYear" : 2001,
+          "genre" : "Science",
+          "available" : true
+        },
+        "user" : {
+          "Student" : {
+            "id" : "1",
+            "name" : "Utilisateur 1",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-02T17:24:33.434869"
+      }
+    },
+    {
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000002",
+          "title" : "Livre Exemple 2",
+          "authors" : [
+            "Auteur 2",
+            "Auteur 3"
+          ],
+          "publicationYear" : 2002,
+          "genre" : "Roman",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "1",
+            "name" : "Utilisateur 1",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-02T17:24:23.994236"
+      }
+    },
+    {
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000001",
+          "title" : "Livre Exemple 1",
+          "authors" : [
+            "Auteur 1",
+            "Auteur 2"
+          ],
+          "publicationYear" : 2001,
+          "genre" : "Science",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "1",
+            "name" : "Utilisateur 1",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-02T17:24:19.426143"
+      }
+    },
+    {
+      "Return" : {
+        "book" : {
+          "isbn" : "978-00000000001",
+          "title" : "Livre Exemple 1",
+          "authors" : [
+            "Auteur 1",
+            "Auteur 2"
+          ],
+          "publicationYear" : 2001,
+          "genre" : "Science",
+          "available" : true
+        },
+        "user" : {
+          "Student" : {
+            "id" : "2",
+            "name" : "Utilisateur 2",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-02T13:06:21.501422"
+      }
+    },
+    {
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000001",
+          "title" : "Livre Exemple 1",
+          "authors" : [
+            "Auteur 1",
+            "Auteur 2"
+          ],
+          "publicationYear" : 2001,
+          "genre" : "Science",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "2",
+            "name" : "Utilisateur 2",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-02T13:06:18.396145"
+      }
+    },
+    {
+      "Return" : {
+        "book" : {
+          "isbn" : "978-00000000002",
+          "title" : "Livre Exemple 2",
+          "authors" : [
+            "Auteur 2",
+            "Auteur 3"
+          ],
+          "publicationYear" : 2002,
+          "genre" : "Roman",
+          "available" : true
+        },
+        "user" : {
+          "Student" : {
+            "id" : "2",
+            "name" : "Utilisateur 2",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-02T11:34:37.564782"
+      }
+    },
+    {
+      "Return" : {
+        "book" : {
+          "isbn" : "978-00000000001",
+          "title" : "Livre Exemple 1",
+          "authors" : [
+            "Auteur 1",
+            "Auteur 2"
+          ],
+          "publicationYear" : 2001,
+          "genre" : "Science",
+          "available" : true
+        },
+        "user" : {
+          "Student" : {
+            "id" : "2",
+            "name" : "Utilisateur 2",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-02T11:34:35.559888"
+      }
+    },
+    {
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000001",
+          "title" : "Livre Exemple 1",
+          "authors" : [
+            "Auteur 1",
+            "Auteur 2"
+          ],
+          "publicationYear" : 2001,
+          "genre" : "Science",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "2",
+            "name" : "Utilisateur 2",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-02T11:34:31.729157"
+      }
+    },
+    {
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000027",
+          "title" : "Livre Exemple 27",
+          "authors" : [
+            "Auteur 27",
+            "Auteur 28"
+          ],
+          "publicationYear" : 2007,
+          "genre" : "Science",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "1",
+            "name" : "Utilisateur 1",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-02T11:33:55.808702"
       }
     },
     {
