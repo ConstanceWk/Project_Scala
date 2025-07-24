@@ -65,4 +65,14 @@ class JsonIOTest extends AnyFunSuite {
     assert(result.isLeft)
     Files.deleteIfExists(Paths.get(badPath))
   }
+
+  // Test pour couvrir Left(ex.getMessage) lors d'une exception à la lecture d'un fichier
+  test("loadFromFile should return Left on unreadable file (exception)") {
+    val path = "/root/forbidden.json" // chemin normalement non lisible sans droits root
+    val result = JsonIO.loadFromFile[Map[String, String]](path)
+    assert(result.isLeft)
+    result.left.foreach { msg =>
+      assert(msg.nonEmpty)
+    }
+  }
 }

@@ -152,4 +152,32 @@ class LibraryCatalogTest extends AnyFunSuite {
     val sync = c2.synchronizeBookAvailability
     assert(sync.books.forall(_.available))
   }
+
+  // Test ciblé pour la branche non couverte : Left("Book not available or User not found")
+  test("Loan should return 'Book not available or User not found' for unavailable book and unknown user") {
+    val unavailableBook = book.copy(available = false)
+    val catalogUnavailable = catalog.copy(books = List(unavailableBook))
+    val result = catalogUnavailable.loanBook(unavailableBook.isbn, "unknown")
+    assert(result == Left("Book not available or User not found"))
+  }
+
+  // Test ciblé pour la branche non couverte : Left("Book not found or User not found")
+  test("Return should return 'Book not found or User not found' for unknown book and unknown user") {
+    val result = catalog.returnBook("unknown_isbn", "unknown_user")
+    assert(result == Left("Book not found or User not found"))
+  }
+
+  // Test pour vérifier que les autres livres ne sont pas modifiés lors d'un prêt
+  test("Loan book should not modify other books in the catalog") {
+    val book2 = Book("9780000000002", "Scala for the Wise", List("Martin Odersky"), 2022, "Programming", true)
+    val catalogWithTwo = catalog.copy(books = List(book, book2))
+    val result = catalogWithTwo.loanBook("9780000000001", "s1")
+    assert(result.isRight)
+    result match {
+      case Right(updated) =>
+        val untouchedBook = updated.books.find(_.isbn == "9780000000002").get
+        assert(untouchedBook == book2)
+      case _ => fail("Loan should succeed")
+    }
+  }
 }
