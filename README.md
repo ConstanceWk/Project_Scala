@@ -54,7 +54,13 @@ It demonstrates Scala 3 programming principles including algebraic data types (A
 
 ## Usage
 
-### Starting the server
+### Starting the Console Application
+
+```bash
+sbt "runMain LibraryApp"
+```
+
+### Starting the App server
 
 ```bash
 cd project-root
