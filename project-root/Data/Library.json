@@ -9,7 +9,7 @@
       ],
       "publicationYear" : 2001,
       "genre" : "Science",
-      "available" : true
+      "available" : false
     },
     {
       "isbn" : "978-00000000002",
@@ -369,6 +369,29 @@
     }
   ],
   "transactions" : [
+    {
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000001",
+          "title" : "Livre Exemple 1",
+          "authors" : [
+            "Auteur 1",
+            "Auteur 2"
+          ],
+          "publicationYear" : 2001,
+          "genre" : "Science",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "1",
+            "name" : "Utilisateur 1",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-24T12:17:31.547903"
+      }
+    },
     {
       "Return" : {
         "book" : {

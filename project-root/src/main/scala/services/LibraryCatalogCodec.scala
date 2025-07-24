@@ -76,6 +76,8 @@ given Decoder[Transaction] = (c: HCursor) => {
   }
 }
 
+given Encoder[Loan] = deriveEncoder
+given Encoder[Return] = deriveEncoder
 given Encoder[Transaction] = deriveEncoder
 
 given Encoder[LibraryCatalog] = deriveEncoder

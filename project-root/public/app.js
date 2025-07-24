@@ -57,15 +57,19 @@ async function loadInitialData() {
 
 async function loadStats() {
     try {
-        const [booksResponse, usersResponse, transactionsResponse] = await Promise.all([
+        const [booksResponse, usersResponse, transactionsResponse, genresResponse, authorsResponse] = await Promise.all([
             fetch(`${API_BASE}/books`),
             fetch(`${API_BASE}/users`),
-            fetch(`${API_BASE}/transactions`)
+            fetch(`${API_BASE}/transactions`),
+            fetch(`${API_BASE}/statistics/genres`),
+            fetch(`${API_BASE}/statistics/authors`)
         ]);
 
         const booksData = await booksResponse.json();
         const usersData = await usersResponse.json();
         const transactionsData = await transactionsResponse.json();
+        const genresData = await genresResponse.json();
+        const authorsData = await authorsResponse.json();
 
         if (booksData.success && usersData.success && transactionsData.success) {
             const totalBooks = booksData.data.length;
@@ -77,7 +81,9 @@ async function loadStats() {
                 totalBooks,
                 availableBooks,
                 totalUsers,
-                totalTransactions
+                totalTransactions,
+                topGenres: genresData.success ? genresData.data : [],
+                topAuthors: authorsData.success ? authorsData.data : []
             });
         }
     } catch (error) {
@@ -103,6 +109,15 @@ function displayStats(stats) {
         <div class="stat-card">
             <h3>${stats.totalTransactions}</h3>
             <p>Transactions</p>
+        </div>
+        <div style="flex-basis: 100%; height: 0;"></div>
+        <div class="stat-card stat-card-wide">
+            <h4><span class="stat-trophy">🏆</span>Top Authors</h4>
+            <ul class="stat-list">${stats.topAuthors && stats.topAuthors.length ? stats.topAuthors.map(([author, count]) => `<li><span>${author}</span><span>${count}</span></li>`).join('') : '<li>No data</li>'}</ul>
+        </div>
+        <div class="stat-card stat-card-wide">
+            <h4><span class="stat-trophy">🏆</span>Top Genres</h4>
+            <ul class="stat-list">${stats.topGenres && stats.topGenres.length ? stats.topGenres.map(([genre, count]) => `<li><span>${genre}</span><span>${count}</span></li>`).join('') : '<li>No data</li>'}</ul>
         </div>
     `;
 }

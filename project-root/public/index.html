@@ -260,27 +260,68 @@
         }
 
         .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px 18px;
+            margin-bottom: 30px;
         }
 
         .stat-card {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
+            border-radius: 12px;
+            padding: 18px 20px 18px 20px;
+            margin: 0 10px 10px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 170px;
+            min-height: 90px;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.10);
+            position: relative;
+        }
+
+        .stat-card-wide {
+            min-width: 340px;
+            flex: 1 1 340px;
+            max-width: 400px;
         }
 
         .stat-card h3 {
-            font-size: 2rem;
-            margin-bottom: 5px;
+            font-size: 2.1rem;
+            margin-bottom: 0.2rem;
+            font-weight: bold;
         }
 
-        .stat-card p {
-            opacity: 0.9;
+        .stat-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .stat-list li {
+            background: rgba(255,255,255,0.13);
+            border-radius: 6px;
+            margin-bottom: 4px;
+            padding: 4px 10px;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-trophy {
+            font-size: 1.2rem;
+            margin-right: 6px;
         }
 
         @media (max-width: 768px) {

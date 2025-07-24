@@ -34,4 +34,26 @@ class LibraryCatalogPropertyTest extends AnyPropSpec {
       result.isRight || result.isLeft
     }
   }
+
+  property("loanBook should fail if user does not exist") {
+    forAll(bookGen) { book =>
+      val catalog = LibraryCatalog(List(book.copy(available = true)), Nil, Nil)
+      val result = catalog.loanBook(book.isbn, "unknown")
+      result.isLeft
+    }
+  }
+
+  property("returnBook should succeed only if book was loaned") {
+    forAll(bookGen, userGen) { (book, user) =>
+      val catalog = LibraryCatalog(List(book.copy(available = true)), List(user), Nil)
+      val afterLoan = catalog.loanBook(book.isbn, user.id)
+      if (afterLoan.isRight) {
+        val afterReturn = afterLoan.toOption.get.returnBook(book.isbn, user.id)
+        afterReturn.isRight
+      } else {
+        val result = catalog.returnBook(book.isbn, user.id)
+        result.isLeft
+      }
+    }
+  }
 }

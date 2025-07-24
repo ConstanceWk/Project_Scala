@@ -10,17 +10,12 @@ import io.circe.{Encoder, Decoder}
 import io.circe.generic.auto._
 
 import models._
+import api._
 import services.{LibraryCatalog, given_Encoder_LibraryCatalog, given_Decoder_LibraryCatalog}
 import utils.JsonIO
 
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.{Failure, Success}
-
-case class LoanRequest(userId: String, bookId: String)
-case class ReturnRequest(userId: String, bookId: String)
-case class SearchRequest(title: String)
-case class RecommendationRequest(userId: String)
-case class ApiResponse[T](success: Boolean, data: Option[T] = None, message: Option[String] = None)
 
 object LibraryServer {
   implicit val system: ActorSystem[Nothing] = ActorSystem(Behaviors.empty, "library-system")
@@ -131,6 +126,52 @@ object LibraryServer {
                   ))
               }
             }
+          }
+        },
+        // POST /api/books/reserve - Réserver un livre
+        path("books" / "reserve") {
+          post {
+            entity(as[String]) { jsonString =>
+              decode[LoanRequest](jsonString) match {
+                case Right(request) =>
+                  catalog.reserveBook(request.bookId, request.userId) match {
+                    case Right(updatedCatalog) =>
+                      saveCatalog(updatedCatalog)
+                      complete(jsonResponse(ApiResponse[String](success = true, message = Some("Livre réservé avec succès"))))
+                    case Left(error) =>
+                      complete(jsonResponse(
+                        ApiResponse[String](success = false, message = Some(error)),
+                        StatusCodes.BadRequest
+                      ))
+                  }
+                case Left(_) =>
+                  complete(jsonResponse(
+                    ApiResponse[String](success = false, message = Some("Requête JSON invalide")),
+                    StatusCodes.BadRequest
+                  ))
+              }
+            }
+          }
+        },
+        // GET /api/users/{userId}/reservations - Voir les réservations d'un utilisateur
+        path("users" / Segment / "reservations") { userId =>
+          get {
+            val reservations = catalog.reservationsForUser(userId)
+            complete(jsonResponse(ApiResponse[List[Reservation]](success = true, data = Some(reservations))))
+          }
+        },
+        // GET /api/statistics/genres - Top 3 genres
+        path("statistics" / "genres") {
+          get {
+            val stats = catalog.topGenres()
+            complete(jsonResponse(ApiResponse[List[(String, Int)]](success = true, data = Some(stats))))
+          }
+        },
+        // GET /api/statistics/authors - Top 3 auteurs
+        path("statistics" / "authors") {
+          get {
+            val stats = catalog.topAuthors()
+            complete(jsonResponse(ApiResponse[List[(String, Int)]](success = true, data = Some(stats))))
           }
         },
         path("users" / Segment / "recommendations") { userId =>

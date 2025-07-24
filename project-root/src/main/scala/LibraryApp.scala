@@ -3,7 +3,7 @@ import services.given_Encoder_LibraryCatalog
 import services.given_Decoder_LibraryCatalog
 
 import models._
-import utils.JsonIO
+import utils.{JsonIO, parseUserId, isValidUserId, given}
 
 import scala.io.StdIn.readLine
 
@@ -24,7 +24,11 @@ object LibraryApp {
         |3. Return a book
         |4. Show my recommendations
         |5. List available books
-        |6. Exit
+        |6. Reserve a book
+        |7. Show my reservations
+        |8. Top 3 genres
+        |9. Top 3 authors
+        |10. Exit
         |------------------------------
         |""".stripMargin)
       
@@ -39,16 +43,22 @@ object LibraryApp {
           loop(catalog)
 
         case Some(2) =>
-          val userId = readLine("Your user ID: ")
-          val bookId = readLine("ID of the book to borrow: ")
-          catalog.loanBook(bookId, userId) match {
-            case Right(updated) =>
-              println("✅ Book borrowed successfully.")
-              JsonIO.saveToFile(updated, jsonPath)
-              loop(updated)
-            case Left(error) =>
-              println(s"❌ Error: $error")
-              loop(catalog)
+          val userIdInput = readLine("Your user ID: ")
+          val userId = parseUserId(userIdInput)
+          if !userId.isValidUserId then
+            println("❌ Error: Invalid user ID format.")
+            loop(catalog)
+          else {
+            val bookId = readLine("ID of the book to borrow: ")
+            catalog.loanBook(bookId, userId) match {
+              case Right(updated) =>
+                println("✅ Book borrowed successfully.")
+                JsonIO.saveToFile(updated, jsonPath)
+                loop(updated)
+              case Left(error) =>
+                println(s"❌ Error: $error")
+                loop(catalog)
+            }
           }
 
         case Some(3) =>
@@ -81,6 +91,32 @@ object LibraryApp {
           loop(catalog)
 
         case Some(6) =>
+          val userId = readLine("Your user ID: ")
+          val bookId = readLine("ID of the book to reserve: ")
+          catalog.reserveBook(bookId, userId) match {
+            case Right(updated) =>
+              println("✅ Book reserved successfully.")
+              JsonIO.saveToFile(updated, jsonPath)
+              loop(updated)
+            case Left(error) =>
+              println(s"❌ Error: $error")
+              loop(catalog)
+          }
+        case Some(7) =>
+          val userId = readLine("Your user ID: ")
+          val reservations = catalog.reservationsForUser(userId)
+          if reservations.isEmpty then println("No reservations found.")
+          else reservations.foreach(r => println(s"🔖 ${r.book.title} reserved at ${r.timestamp}"))
+          loop(catalog)
+        case Some(8) =>
+          println("🏆 Top 3 genres:")
+          catalog.topGenres().foreach { case (genre, count) => println(s"$genre: $count") }
+          loop(catalog)
+        case Some(9) =>
+          println("🏆 Top 3 authors:")
+          catalog.topAuthors().foreach { case (author, count) => println(s"$author: $count") }
+          loop(catalog)
+        case Some(10) =>
           println("👋 Thank you for using our system. See you soon!")
 
         case _ =>

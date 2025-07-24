@@ -33,4 +33,36 @@ class JsonIOTest extends AnyFunSuite {
     Files.deleteIfExists(Paths.get(testPath))
     assert(!Files.exists(Paths.get(testPath)))
   }
+
+  test("saveToFile should throw for invalid path") {
+    assertThrows[Exception] {
+      JsonIO.saveToFile("test", "/invalid_dir/should_fail.json")
+    }
+  }
+
+  test("loadFromFile should return Left for malformed JSON") {
+    val badPath = "bad.json"
+    Files.write(Paths.get(badPath), "not a json".getBytes())
+    val result = JsonIO.loadFromFile[LibraryCatalog](badPath)
+    assert(result.isLeft)
+    Files.deleteIfExists(Paths.get(badPath))
+  }
+
+  test("saveToFile and loadFromFile with empty catalog") {
+    val path = "empty_catalog.json"
+    val empty = LibraryCatalog(Nil, Nil, Nil)
+    JsonIO.saveToFile(empty, path)
+    val loaded = JsonIO.loadFromFile[LibraryCatalog](path)
+    assert(loaded.isRight)
+    assert(loaded.toOption.get.books.isEmpty)
+    Files.deleteIfExists(Paths.get(path))
+  }
+
+  test("loadFromFile returns Left for invalid JSON structure") {
+    val badPath = "bad2.json"
+    Files.write(Paths.get(badPath), "{}".getBytes())
+    val result = JsonIO.loadFromFile[LibraryCatalog](badPath)
+    assert(result.isLeft)
+    Files.deleteIfExists(Paths.get(badPath))
+  }
 }
