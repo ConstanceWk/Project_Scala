@@ -1,25 +1,19 @@
-// Configuration de l'API
 const API_BASE = '/api';
 
-// Variables globales
 let currentBooks = [];
 let allBooks = [];
 let users = [];
 
-// Initialisation de l'application
 document.addEventListener('DOMContentLoaded', function() {
     console.log('📚 Library application initialized');
     loadInitialData();
     setupEventListeners();
 });
 
-// Configuration des événements
 function setupEventListeners() {
-    // Recherche en temps réel
     const searchInput = document.getElementById('searchTitle');
     searchInput.addEventListener('input', debounce(handleSearchInput, 300));
     
-    // Touche Entrée pour rechercher
     searchInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             searchBooks();
@@ -27,7 +21,6 @@ function setupEventListeners() {
     });
 }
 
-// Fonction de debounce pour éviter trop de requêtes
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -40,7 +33,6 @@ function debounce(func, wait) {
     };
 }
 
-// Gestion de la recherche en temps réel
 function handleSearchInput() {
     const searchTerm = document.getElementById('searchTitle').value.trim();
     if (searchTerm.length > 2) {
@@ -50,7 +42,6 @@ function handleSearchInput() {
     }
 }
 
-// Chargement des données initiales
 async function loadInitialData() {
     try {
         await Promise.all([
@@ -64,7 +55,6 @@ async function loadInitialData() {
     }
 }
 
-// Chargement des statistiques
 async function loadStats() {
     try {
         const [booksResponse, usersResponse, transactionsResponse] = await Promise.all([
@@ -95,7 +85,6 @@ async function loadStats() {
     }
 }
 
-// Affichage des statistiques
 function displayStats(stats) {
     const statsContainer = document.getElementById('stats');
     statsContainer.innerHTML = `
@@ -118,7 +107,6 @@ function displayStats(stats) {
     `;
 }
 
-// Chargement des utilisateurs
 async function loadUsers() {
     try {
         const response = await fetch(`${API_BASE}/users`);
@@ -133,7 +121,6 @@ async function loadUsers() {
     }
 }
 
-// Chargement de tous les livres
 async function loadAllBooks() {
     showLoading();
     try {
@@ -153,7 +140,6 @@ async function loadAllBooks() {
     }
 }
 
-// Chargement des livres disponibles
 async function loadAvailableBooks() {
     showLoading();
     try {
@@ -172,7 +158,6 @@ async function loadAvailableBooks() {
     }
 }
 
-// Recherche de livres
 async function searchBooks() {
     const searchTerm = document.getElementById('searchTitle').value.trim();
     
@@ -208,7 +193,6 @@ async function searchBooks() {
     }
 }
 
-// Chargement des recommandations
 async function loadRecommendations() {
     const userId = document.getElementById('userId').value.trim();
     
@@ -237,7 +221,6 @@ async function loadRecommendations() {
     }
 }
 
-// Emprunter un livre
 async function loanBook(bookId) {
     const userId = document.getElementById('userId').value.trim();
     
@@ -262,9 +245,8 @@ async function loanBook(bookId) {
         
         if (data.success) {
             showAlert(data.message, 'success');
-            // Recharger les livres disponibles
             loadAvailableBooks();
-            loadStats(); // Mettre à jour les statistiques
+            loadStats(); 
         } else {
             showAlert(data.message || 'Error during loan', 'error');
         }
@@ -274,7 +256,6 @@ async function loanBook(bookId) {
     }
 }
 
-// Retourner un livre
 async function returnBook(bookId) {
     const userId = document.getElementById('userId').value.trim();
     
@@ -299,9 +280,9 @@ async function returnBook(bookId) {
         
         if (data.success) {
             showAlert(data.message, 'success');
-            // Recharger tous les livres pour voir le changement
+            
             loadAllBooks();
-            loadStats(); // Mettre à jour les statistiques
+            loadStats(); 
         } else {
             showAlert(data.message || 'Error during return', 'error');
         }
@@ -311,7 +292,6 @@ async function returnBook(bookId) {
     }
 }
 
-// Affichage des livres
 function displayBooks(books, title) {
     const container = document.getElementById('booksContainer');
     const sectionTitle = document.getElementById('sectionTitle');
@@ -330,7 +310,6 @@ function displayBooks(books, title) {
     container.innerHTML = books.map(book => createBookCard(book)).join('');
 }
 
-// Création d'une carte de livre
 function createBookCard(book) {
     const availabilityClass = book.available ? 'available' : 'unavailable';
     const availabilityText = book.available ? '✅ Available' : '❌ Loaned';
@@ -360,7 +339,6 @@ function createBookCard(book) {
     `;
 }
 
-// Affichage des alertes
 function showAlert(message, type) {
     const alertsContainer = document.getElementById('alerts');
     const alertClass = type === 'success' ? 'alert-success' : 'alert-error';
@@ -375,7 +353,6 @@ function showAlert(message, type) {
     
     alertsContainer.appendChild(alertDiv);
     
-    // Supprimer automatiquement après 5 secondes
     setTimeout(() => {
         if (alertDiv.parentElement) {
             alertDiv.remove();
@@ -383,7 +360,6 @@ function showAlert(message, type) {
     }, 5000);
 }
 
-// Affichage du chargement
 function showLoading() {
     const container = document.getElementById('booksContainer');
     container.innerHTML = `
@@ -394,7 +370,6 @@ function showLoading() {
     `;
 }
 
-// Fonctions utilitaires
 function formatDate(dateString) {
     const date = new Date(dateString);
     return date.toLocaleDateString('fr-FR');
@@ -404,12 +379,10 @@ function capitalizeFirst(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-// Gestion des erreurs globales
 window.addEventListener('error', function(e) {
     console.error('JavaScript Error:', e.error);
     showAlert('An unexpected error occurred', 'error');
 });
 
-// Console log pour le debugging
 console.log('📚 Library management JavaScript module loaded');
 console.log('🔧 API available at:', API_BASE);

@@ -6,7 +6,6 @@ import models._
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-// Encoders/Decoders pour LocalDateTime
 given Encoder[LocalDateTime] = Encoder.encodeString.contramap[LocalDateTime](_.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME))
 given Decoder[LocalDateTime] = Decoder.decodeString.emap { str =>
   try Right(LocalDateTime.parse(str, DateTimeFormatter.ISO_LOCAL_DATE_TIME))
@@ -16,9 +15,7 @@ given Decoder[LocalDateTime] = Decoder.decodeString.emap { str =>
 given Encoder[Book] = deriveEncoder
 given Decoder[Book] = deriveDecoder
 
-// Decoder personnalisé pour User qui traite les objets simples comme des Students
 given Decoder[User] = (c: HCursor) => {
-  // Format imbriqué : { "Student": {...} } ou { "Faculty": {...} } ou { "Librarian": {...} }
   c.keys.flatMap(_.headOption) match {
     case Some("Student") =>
       val studentCursor = c.downField("Student")
@@ -42,7 +39,7 @@ given Decoder[User] = (c: HCursor) => {
         position <- librarianCursor.downField("position").as[String]
       } yield Librarian(id, name, position)
     case _ =>
-      // Fallback : format plat (jamais utilisé ici)
+      
       for {
         id <- c.downField("id").as[String]
         name <- c.downField("name").as[String]
@@ -53,9 +50,8 @@ given Decoder[User] = (c: HCursor) => {
 
 given Encoder[User] = deriveEncoder
 
-// Decoder personnalisé pour Transaction qui traite les objets simples comme des Loans
 given Decoder[Transaction] = (c: HCursor) => {
-  // Format imbriqué : { "Loan": {...} } ou { "Return": {...} }
+  
   c.keys.flatMap(_.headOption) match {
     case Some("Loan") =>
       val loanCursor = c.downField("Loan")
@@ -72,7 +68,6 @@ given Decoder[Transaction] = (c: HCursor) => {
         timestamp <- returnCursor.downField("timestamp").as[LocalDateTime]
       } yield Return(book, user, timestamp)
     case _ =>
-      // Fallback : format plat (jamais utilisé ici)
       for {
         book <- c.downField("book").as[Book]
         user <- c.downField("user").as[User]

@@ -42,7 +42,7 @@
       ],
       "publicationYear" : 2004,
       "genre" : "Roman",
-      "available" : false
+      "available" : true
     },
     {
       "isbn" : "978-00000000005",
@@ -369,6 +369,52 @@
     }
   ],
   "transactions" : [
+    {
+      "Return" : {
+        "book" : {
+          "isbn" : "978-00000000001",
+          "title" : "Livre Exemple 1",
+          "authors" : [
+            "Auteur 1",
+            "Auteur 2"
+          ],
+          "publicationYear" : 2001,
+          "genre" : "Science",
+          "available" : true
+        },
+        "user" : {
+          "Student" : {
+            "id" : "1",
+            "name" : "Utilisateur 1",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-24T11:58:55.829558"
+      }
+    },
+    {
+      "Loan" : {
+        "book" : {
+          "isbn" : "978-00000000001",
+          "title" : "Livre Exemple 1",
+          "authors" : [
+            "Auteur 1",
+            "Auteur 2"
+          ],
+          "publicationYear" : 2001,
+          "genre" : "Science",
+          "available" : false
+        },
+        "user" : {
+          "Student" : {
+            "id" : "1",
+            "name" : "Utilisateur 1",
+            "level" : "Undergraduate"
+          }
+        },
+        "timestamp" : "2025-07-24T11:58:48.408144"
+      }
+    },
     {
       "Return" : {
         "book" : {

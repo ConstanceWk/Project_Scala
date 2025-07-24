@@ -57,7 +57,6 @@ case class LibraryCatalog(
     preferredGenres.flatMap(g => books.filter(b => b.genre == g && b.available)).distinct
   }
 
-  // Méthode pour synchroniser l'état des livres avec les transactions
   def synchronizeBookAvailability: LibraryCatalog = {
     val borrowedISBNs = transactions.collect {
       case Loan(book, _, _) => book.isbn

@@ -16,7 +16,6 @@ import utils.JsonIO
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.{Failure, Success}
 
-// DTOs pour les requêtes et réponses
 case class LoanRequest(userId: String, bookId: String)
 case class ReturnRequest(userId: String, bookId: String)
 case class SearchRequest(title: String)
@@ -41,7 +40,6 @@ object LibraryServer {
     catalog = newCatalog
   }
 
-  // Helper pour créer des réponses JSON
   private def jsonResponse[T: Encoder](data: T, status: StatusCode = StatusCodes.OK): HttpResponse = {
     HttpResponse(
       status = status,
@@ -50,29 +48,26 @@ object LibraryServer {
   }
 
   val routes: Route =
-    // Servir les fichiers statiques
+    
     pathSingleSlash {
       getFromFile("public/index.html")
     } ~
     pathPrefix("static") {
       getFromDirectory("public")
     } ~
-    // API REST
     pathPrefix("api") {
       concat(
-        // GET /api/books - Liste tous les livres
         path("books") {
           get {
             complete(jsonResponse(ApiResponse[List[Book]](success = true, data = Some(catalog.books))))
           }
         },
-        // GET /api/books/available - Liste les livres disponibles
         path("books" / "available") {
           get {
             complete(jsonResponse(ApiResponse[List[Book]](success = true, data = Some(catalog.availableBooks))))
           }
         },
-        // POST /api/books/search - Recherche de livres par titre
+        
         path("books" / "search") {
           post {
             entity(as[String]) { jsonString =>
@@ -114,7 +109,6 @@ object LibraryServer {
             }
           }
         },
-        // POST /api/books/return - Retourner un livre
         path("books" / "return") {
           post {
             entity(as[String]) { jsonString =>
@@ -139,20 +133,17 @@ object LibraryServer {
             }
           }
         },
-        // GET /api/users/{userId}/recommendations - Recommandations pour un utilisateur
         path("users" / Segment / "recommendations") { userId =>
           get {
             val recommendations = catalog.recommendBooks(userId)
             complete(jsonResponse(ApiResponse[List[Book]](success = true, data = Some(recommendations))))
           }
         },
-        // GET /api/users - Liste des utilisateurs
         path("users") {
           get {
             complete(jsonResponse(ApiResponse[List[User]](success = true, data = Some(catalog.users))))
           }
         },
-        // GET /api/transactions - Liste des transactions
         path("transactions") {
           get {
             complete(jsonResponse(ApiResponse[List[Transaction]](success = true, data = Some(catalog.transactions))))
@@ -178,10 +169,8 @@ object LibraryServer {
         system.terminate()
     }
 
-    // Maintenir le serveur en vie
     scala.io.StdIn.readLine()
     
-    // Arrêter le serveur proprement
     bindingFuture
       .flatMap(_.unbind())
       .onComplete(_ => system.terminate())
