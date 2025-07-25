@@ -66,12 +66,12 @@ case class LibraryCatalog(
     transactions.collect { case r: Reservation if r.user.id == userId => r }
 
   def recommendBooks(userId: UserID): List[Book] = {
-    val history = transactions.collect {
-      case Loan(book, user, _) if user.id == userId => book.genre
-    }
-    val preferredGenres = history.groupBy(identity).view.mapValues(_.size).toList.sortBy(-_._2).map(_._1)
-    preferredGenres.flatMap(g => books.filter(b => b.genre == g && b.available)).distinct
+  val history = transactions.collect {
+    case Loan(book, user, _) if user.id == userId => book.genre
   }
+  val preferredGenres = history.groupBy(identity).view.mapValues(_.size).toList.sortBy(-_._2).map(_._1).take(1) // Limite aux genres les plus fréquents
+  preferredGenres.flatMap(g => books.filter(b => b.genre == g && b.available)).distinct
+}
 
   def topGenres(n: Int = 3): List[(String, Int)] = {
     val genres = transactions.collect { case Loan(book, _, _) => book.genre }

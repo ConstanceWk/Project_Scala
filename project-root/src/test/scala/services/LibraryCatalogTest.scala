@@ -180,4 +180,39 @@ class LibraryCatalogTest extends AnyFunSuite {
       case _ => fail("Loan should succeed")
     }
   }
+  test("LibraryCatalog topGenres and topAuthors") {
+  val book1 = Book("isbn1", "Title1", List("Author1"), 2020, "Fiction", true)
+  val book2 = Book("isbn2", "Title2", List("Author2"), 2021, "Science", true)
+  val book3 = Book("isbn3", "Title3", List("Author1"), 2022, "Fiction", true)
+  val user = Student("user1", "Alice", "Bachelor")
+  val transactions = List(
+    Loan(book1, user, LocalDateTime.now()),
+    Loan(book2, user, LocalDateTime.now()),
+    Loan(book3, user, LocalDateTime.now())
+  )
+  val catalog = LibraryCatalog(List(book1, book2, book3), List(user), transactions)
+
+  val topGenres = catalog.topGenres()
+  assert(topGenres == List(("Fiction", 2), ("Science", 1)))
+
+  val topAuthors = catalog.topAuthors()
+  assert(topAuthors == List(("Author1", 2), ("Author2", 1)))
+ }
+ test("recommendBooks returns books in preferred genres based on transaction history") {
+  val book1 = Book("isbn1", "Title1", List("Author1"), 2020, "Fiction", true)
+  val book2 = Book("isbn2", "Title2", List("Author2"), 2021, "Science", true)
+  val book3 = Book("isbn3", "Title3", List("Author1"), 2022, "Fiction", true)
+  val unavailableBook = Book("isbn4", "Title4", List("Author3"), 2023, "Fiction", false)
+  val user = Student("user1", "Alice", "Bachelor")
+  val transactions = List(
+    Loan(book1, user, LocalDateTime.now()),
+    Loan(book2, user, LocalDateTime.now()),
+    Loan(book3, user, LocalDateTime.now())
+  )
+  val catalog = LibraryCatalog(List(book1, book2, book3, unavailableBook), List(user), transactions)
+
+  val recommendations = catalog.recommendBooks("user1")
+  assert(recommendations == List(book1, book3)) // Les livres disponibles dans le genre "Fiction"
+ }
+
 }
