@@ -17,7 +17,9 @@ lazy val root = (project in file("."))
       "com.typesafe.akka" %% "akka-http" % "10.5.0",
       "com.typesafe.akka" %% "akka-stream" % "2.8.0",
       "com.typesafe.akka" %% "akka-actor-typed" % "2.8.0",
-      "com.lihaoyi" %% "requests" % "0.8.0" % Test // pour tests HTTP
+      "com.lihaoyi" %% "requests" % "0.8.0" % Test, // pour tests HTTP
+      "com.typesafe.akka" %% "akka-http-testkit" % "10.5.0" % Test, // version compatible Scala 3
+      "com.typesafe.akka" %% "akka-actor-testkit-typed" % "2.8.0" % Test // pour TestDuration
     ),
     // Configuration de la couverture de code
     coverageEnabled := true,

@@ -11,7 +11,7 @@ import io.circe.generic.auto._
 
 import models._
 import api._
-import services.{LibraryCatalog, given_Encoder_LibraryCatalog, given_Decoder_LibraryCatalog}
+import services.{LibraryCatalog, given}
 import utils.JsonIO
 
 import scala.concurrent.{ExecutionContext, Future}

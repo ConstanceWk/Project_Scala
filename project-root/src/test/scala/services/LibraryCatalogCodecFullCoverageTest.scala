@@ -43,12 +43,6 @@ class LibraryCatalogCodecFullCoverageTest extends AnyFunSuite {
     }
   }
 
-  test("User decoder fallback to Student if unknown type") {
-    val json = """{"id":"x","name":"y"}"""
-    val decoded = decode[User](json)
-    assert(decoded.exists(_.isInstanceOf[Student]))
-  }
-
   test("Transaction codec roundtrip for Loan and Return") {
     val now = LocalDateTime.now.withNano(0)
     val book = Book("isbn", "title", List("author"), 2020, "genre", true)
@@ -60,15 +54,6 @@ class LibraryCatalogCodecFullCoverageTest extends AnyFunSuite {
       val decoded = decode[Transaction](json)
       assert(decoded.contains(t))
     }
-  }
-
-  test("Transaction decoder fallback to Loan if unknown type") {
-    val now = LocalDateTime.now.withNano(0)
-    val book = Book("isbn", "title", List("author"), 2020, "genre", true)
-    val user = Student("id", "name", "level")
-    val json = s"""{"book":${book.asJson.noSpaces},"user":${user.asJson.noSpaces},"timestamp":"${now}"}"""
-    val decoded = decode[Transaction](json)
-    assert(decoded.exists(_.isInstanceOf[Loan]))
   }
 
   test("LibraryCatalog codec roundtrip") {
@@ -88,6 +73,30 @@ class LibraryCatalogCodecFullCoverageTest extends AnyFunSuite {
   test("LocalDateTime decoder returns Left on invalid format") {
     val json = "\"not-a-date\""
     val decoded = decode[LocalDateTime](json)
+    assert(decoded.isLeft)
+  }
+
+  test("User decoder fails on completely invalid JSON") {
+    val json = "{}"
+    val decoded = decode[User](json)
+    assert(decoded.isLeft)
+  }
+
+  test("Transaction decoder fails on completely invalid JSON") {
+    val json = "{}"
+    val decoded = decode[Transaction](json)
+    assert(decoded.isLeft)
+  }
+
+  test("User decoder fails on wrong structure") {
+    val json = "{\"Faculty\":{\"id\":1}}" // id not a string
+    val decoded = decode[User](json)
+    assert(decoded.isLeft)
+  }
+
+  test("Transaction decoder fails on wrong structure") {
+    val json = "{\"Loan\":{\"book\":{},\"user\":{},\"timestamp\":\"not-a-date\"}}"
+    val decoded = decode[Transaction](json)
     assert(decoded.isLeft)
   }
 }

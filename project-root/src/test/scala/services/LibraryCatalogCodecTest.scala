@@ -26,15 +26,6 @@ class LibraryCatalogCodecTest extends AnyFunSuite {
     assert(decoded.toOption.get == user)
   }
 
-  test("Transaction encode/decode") {
-    val book = Book("9780000000001", "Test", List("A"), 2020, "Test", true)
-    val user: User = Student("id1", "Alice", "Bachelor")
-    val loan = Loan(book, user, LocalDateTime.now())
-    val json = loan.asJson.noSpaces
-    val decoded = decode[Transaction](json)
-    assert(decoded.isRight)
-  }
-
   test("ApiResponse encode/decode with and without data") {
     val resp1 = ApiResponse[String](success = true, data = Some("ok"), message = None)
     val json = io.circe.syntax.EncoderOps(resp1).asJson.noSpaces
@@ -60,4 +51,88 @@ class LibraryCatalogCodecTest extends AnyFunSuite {
     val decoded3 = io.circe.parser.decode[SearchRequest](json3)
     assert(decoded3.isRight)
   }
+
+  test("User decode: Student explicit") {
+    val json = """{"Student":{"id":"s1","name":"Alice","level":"Bachelor"}}"""
+    val decoded = io.circe.parser.decode[User](json)
+    assert(decoded.isRight)
+    assert(decoded.toOption.get == Student("s1", "Alice", "Bachelor"))
+  }
+
+  test("User decode: Faculty explicit") {
+    val json = """{"Faculty":{"id":"f1","name":"Bob","department":"Math"}}"""
+    val decoded = io.circe.parser.decode[User](json)
+    assert(decoded.isRight)
+    assert(decoded.toOption.get == Faculty("f1", "Bob", "Math"))
+  }
+
+  test("User decode: Librarian explicit") {
+    val json = """{"Librarian":{"id":"l1","name":"Eve","position":"Chief"}}"""
+    val decoded = io.circe.parser.decode[User](json)
+    assert(decoded.isRight)
+    assert(decoded.toOption.get == Librarian("l1", "Eve", "Chief"))
+  }
+
+  test("User decode: error on malformed JSON") {
+    val json = """{"Student":{"id":123}}"""
+    val decoded = io.circe.parser.decode[User](json)
+    assert(decoded.isLeft)
+  }
+
+  test("Transaction decode: Loan explicit") {
+    val book = Book("isbn", "title", List("A"), 2020, "Test", true)
+    val user: User = Student("id1", "Alice", "Bachelor")
+    val ts = LocalDateTime.now()
+    val json = s"""{"Loan":{"book":${book.asJson.noSpaces},"user":${user.asJson.noSpaces},"timestamp":"${ts}"}}"""
+    val decoded = io.circe.parser.decode[Transaction](json)
+    assert(decoded.isRight)
+    assert(decoded.toOption.get.isInstanceOf[Loan])
+  }
+
+  test("Transaction decode: Return explicit") {
+    val book = Book("isbn", "title", List("A"), 2020, "Test", true)
+    val user: User = Student("id1", "Alice", "Bachelor")
+    val ts = LocalDateTime.now()
+    val json = s"""{"Return":{"book":${book.asJson.noSpaces},"user":${user.asJson.noSpaces},"timestamp":"${ts}"}}"""
+    val decoded = io.circe.parser.decode[Transaction](json)
+    assert(decoded.isRight)
+    assert(decoded.toOption.get.isInstanceOf[Return])
+  }
+
+  test("Transaction decode: error on malformed JSON") {
+    val json = """{"Loan":{"book":null,"user":null,"timestamp":null}}"""
+    val decoded = io.circe.parser.decode[Transaction](json)
+    assert(decoded.isLeft)
+  }
+
+  test("LibraryCatalog encode/decode roundtrip") {
+    val catalog = LibraryCatalog(
+      books = List(Book("isbn", "title", List("A"), 2020, "Test", true)),
+      users = List(Student("id1", "Alice", "Bachelor")),
+      transactions = List(Loan(Book("isbn", "title", List("A"), 2020, "Test", true), Student("id1", "Alice", "Bachelor"), LocalDateTime.now()))
+    )
+    val json = catalog.asJson.noSpaces
+    val decoded = io.circe.parser.decode[LibraryCatalog](json)
+    assert(decoded.isRight)
+    assert(decoded.toOption.get.books.nonEmpty)
+    assert(decoded.toOption.get.users.nonEmpty)
+    assert(decoded.toOption.get.transactions.nonEmpty)
+  }
+
+  test("LibraryCatalog encode/decode with empty lists") {
+    val catalog = LibraryCatalog(Nil, Nil, Nil)
+    val json = catalog.asJson.noSpaces
+    val decoded = io.circe.parser.decode[LibraryCatalog](json)
+    assert(decoded.isRight)
+    assert(decoded.toOption.get.books.isEmpty)
+    assert(decoded.toOption.get.users.isEmpty)
+    assert(decoded.toOption.get.transactions.isEmpty)
+  }
+
+  test("LocalDateTime decode: invalid format") {
+    val json = "\"not-a-date\""
+    val decoded = io.circe.parser.decode[java.time.LocalDateTime](json)
+    assert(decoded.isLeft)
+  }
+
 }
