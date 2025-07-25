@@ -213,6 +213,6 @@ class LibraryCatalogTest extends AnyFunSuite {
 
   val recommendations = catalog.recommendBooks("user1")
   assert(recommendations == List(book1, book3)) // Les livres disponibles dans le genre "Fiction"
- }
+ } 
 
 }
